@@ -1,0 +1,1658 @@
+<!DOCTYPE html><html mol_view_root=""><head><meta charset="utf-8">
+<meta name="fragment" content="!">
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+
+<link rel="manifest" href="hyoo/scout/manifest.json">
+
+<!-- description -->
+<meta name="description" content="Игротека вожатого">
+<meta name="application-name" content="Игротека вожатого">
+<meta name="apple-mobile-web-app-title" content="Игротека вожатого">
+
+<!-- colors -->
+<meta name="theme-color" content="#ffffff">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<!-- logo -->
+<link href="hyoo/scout/logo/logo_16.png" rel="icon">
+<link rel="apple-touch-icon" sizes="128x128" href="hyoo/scout/logo/logo_128.png">
+<link rel="apple-touch-icon-precomposed" sizes="128x128" href="hyoo/scout/logo/logo_128.png">
+<meta name="msapplication-TileImage" content="hyoo/scout/logo/logo_192.png">
+
+<!-- full screen -->
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<style id="$mol_style_attach:mol/theme/theme.css">:root {
+	--mol_theme_hue: 240deg;
+	--mol_theme_hue_spread: 90deg;
+}
+
+:where([mol_theme]) {
+	color: var(--mol_theme_text);
+	fill: var(--mol_theme_text);
+	background-color: var(--mol_theme_back);
+}
+	
+:root, [mol_theme="$mol_theme_dark"], :where([mol_theme="$mol_theme_dark"]) [mol_theme]  {
+
+	--mol_theme_luma: -1;
+	--mol_theme_image: invert(1) hue-rotate( 180deg );
+	--mol_theme_spirit: hsl( 0deg, 0%, 0%, .75 );
+
+	--mol_theme_back: hsl( var(--mol_theme_hue), 20%, 10% );
+	--mol_theme_card: hsl( var(--mol_theme_hue), 50%, 20%, .25 );
+	--mol_theme_field: hsl( var(--mol_theme_hue), 50%, 8%, .25 );
+	--mol_theme_hover: hsl( var(--mol_theme_hue), 0%, 50%, .1 );
+	
+	--mol_theme_text: hsl( var(--mol_theme_hue), 0%, 80% );
+	--mol_theme_shade: hsl( var(--mol_theme_hue), 0%, 60%, 1 );
+	--mol_theme_line: hsl( var(--mol_theme_hue), 0%, 50%, .25 );
+	--mol_theme_focus: hsl( calc( var(--mol_theme_hue) + 180deg ), 100%, 65% );
+	
+	--mol_theme_control: hsl( var(--mol_theme_hue), 60%, 65% );
+	--mol_theme_current: hsl( calc( var(--mol_theme_hue) - var(--mol_theme_hue_spread) ), 60%, 65% );
+	--mol_theme_special: hsl( calc( var(--mol_theme_hue) + var(--mol_theme_hue_spread) ), 60%, 65% );
+
+} @supports( color: oklch( 0% 0 0deg ) ) {
+:root, [mol_theme="$mol_theme_dark"], :where([mol_theme="$mol_theme_dark"]) [mol_theme]  {
+	
+	--mol_theme_back: oklch( 20% .03 var(--mol_theme_hue) );
+	--mol_theme_card: oklch( 30% .05 var(--mol_theme_hue) / .25 );
+	--mol_theme_field: oklch( 15% 0 var(--mol_theme_hue) / .25 );
+	--mol_theme_hover: oklch( 70% 0 var(--mol_theme_hue) / .1 );
+	
+	--mol_theme_text: oklch( 80% 0 var(--mol_theme_hue) );
+	--mol_theme_shade: oklch( 60% 0 var(--mol_theme_hue) );
+	--mol_theme_line: oklch( 60% 0 var(--mol_theme_hue) / .25 );
+	--mol_theme_focus: oklch( 80% .2 calc( var(--mol_theme_hue) + 180deg ) );
+	
+	--mol_theme_control: oklch( 70% .1 var(--mol_theme_hue) );
+	--mol_theme_current: oklch( 70% .2 calc( var(--mol_theme_hue) - var(--mol_theme_hue_spread) ) );
+	--mol_theme_special: oklch( 70% .2 calc( var(--mol_theme_hue) + var(--mol_theme_hue_spread) ) );
+
+} }
+
+[mol_theme="$mol_theme_light"], :where([mol_theme="$mol_theme_light"]) [mol_theme] {
+	
+	--mol_theme_luma: 1;
+	--mol_theme_image: none;
+	--mol_theme_spirit: hsl( 0deg, 0%, 100%, .75 );
+	
+	--mol_theme_back: hsl( var(--mol_theme_hue), 20%, 92% );
+	--mol_theme_card: hsl( var(--mol_theme_hue), 50%, 100%, .5 );
+	--mol_theme_field: hsl( var(--mol_theme_hue), 50%, 100%, .75 );
+	--mol_theme_hover: hsl( var(--mol_theme_hue), 0%, 50%, .1 );
+	
+	--mol_theme_text: hsl( var(--mol_theme_hue), 0%, 0% );
+	--mol_theme_shade: hsl( var(--mol_theme_hue), 0%, 40%, 1 );
+	--mol_theme_line: hsl( var(--mol_theme_hue), 0%, 50%, .25 );
+	--mol_theme_focus: hsl( calc( var(--mol_theme_hue) + 180deg ), 100%, 40% );
+	
+	--mol_theme_control: hsl( var(--mol_theme_hue), 80%, 30% );
+	--mol_theme_current: hsl( calc( var(--mol_theme_hue) - var(--mol_theme_hue_spread) ), 80%, 30% );
+	--mol_theme_special: hsl( calc( var(--mol_theme_hue) + var(--mol_theme_hue_spread) ), 80%, 30% );
+
+} @supports( color: oklch( 0% 0 0deg ) ) {
+[mol_theme="$mol_theme_light"], :where([mol_theme="$mol_theme_light"]) [mol_theme] {
+	--mol_theme_back: oklch( 92% .01 var(--mol_theme_hue) );
+	--mol_theme_card: oklch( 99% .01 var(--mol_theme_hue) / .5 );
+	--mol_theme_field: oklch( 100% 0 var(--mol_theme_hue) / .5 );
+	--mol_theme_hover: oklch( 70% 0 var(--mol_theme_hue) / .1 );
+	
+	--mol_theme_text: oklch( 20% 0 var(--mol_theme_hue) );
+	--mol_theme_shade: oklch( 60% 0 var(--mol_theme_hue) );
+	--mol_theme_line: oklch( 50% 0 var(--mol_theme_hue) / .25 );
+	--mol_theme_focus: oklch( 60% .2 calc( var(--mol_theme_hue) + 180deg ) );
+	
+	--mol_theme_control: oklch( 40% .15 var(--mol_theme_hue) );
+	--mol_theme_current: oklch( 50% .2 calc( var(--mol_theme_hue) - var(--mol_theme_hue_spread) ) );
+	--mol_theme_special: oklch( 50% .2 calc( var(--mol_theme_hue) + var(--mol_theme_hue_spread) ) );
+
+} }
+
+:where( :root, [mol_theme="$mol_theme_dark"] ) [mol_theme="$mol_theme_base"] {
+	--mol_theme_back: oklch( 25% .075 var(--mol_theme_hue) );
+	--mol_theme_card: oklch( 35% .1 var(--mol_theme_hue) / .25 );
+}
+:where( [mol_theme="$mol_theme_light"] ) [mol_theme="$mol_theme_base"] {
+	--mol_theme_back: oklch( 85% .075 var(--mol_theme_hue) );
+	--mol_theme_card: oklch( 98% .03 var(--mol_theme_hue) / .25 );
+}
+
+:where( :root, [mol_theme="$mol_theme_dark"] ) [mol_theme="$mol_theme_current"] {
+	--mol_theme_back: oklch( 25% .05 calc( var(--mol_theme_hue) - var(--mol_theme_hue_spread) ) );
+	--mol_theme_card: oklch( 35% .1 calc( var(--mol_theme_hue) - var(--mol_theme_hue_spread) ) / .25 );
+}
+:where( [mol_theme="$mol_theme_light"] ) [mol_theme="$mol_theme_current"] {
+	--mol_theme_back: oklch( 85% .05 calc( var(--mol_theme_hue) - var(--mol_theme_hue_spread) ) );
+	--mol_theme_card: oklch( 98% .03 calc( var(--mol_theme_hue) - var(--mol_theme_hue_spread) ) / .25 );
+}
+
+:where( :root, [mol_theme="$mol_theme_dark"] ) [mol_theme="$mol_theme_special"] {
+	--mol_theme_back: oklch( 25% .05 calc( var(--mol_theme_hue) + var(--mol_theme_hue_spread) ) );
+	--mol_theme_card: oklch( 35% .1 calc( var(--mol_theme_hue) + var(--mol_theme_hue_spread) ) / .25 );
+}
+:where( [mol_theme="$mol_theme_light"] ) [mol_theme="$mol_theme_special"] {
+	--mol_theme_back: oklch( 85% .05 calc( var(--mol_theme_hue) + var(--mol_theme_hue_spread) ) );
+	--mol_theme_card: oklch( 98% .03 calc( var(--mol_theme_hue) + var(--mol_theme_hue_spread) ) / .25 );
+}
+
+:where( :root, [mol_theme="$mol_theme_dark"] ) [mol_theme="$mol_theme_accent"] {
+	--mol_theme_back: oklch( 35% .1 calc( var(--mol_theme_hue) + 180deg ) );
+	--mol_theme_card: oklch( 45% .15 calc( var(--mol_theme_hue) + 180deg ) / .25 );
+}
+:where( [mol_theme="$mol_theme_light"] ) [mol_theme="$mol_theme_accent"] {
+	--mol_theme_back: oklch( 83% .1 calc( var(--mol_theme_hue) + 180deg ) );
+	--mol_theme_card: oklch( 98% .03 calc( var(--mol_theme_hue) + 180deg ) / .25 );
+}
+
+</style><style id="$mol_style_attach:mol/gap/gap.css">:root {
+	--mol_gap_block: .75rem;
+	--mol_gap_text: .5rem .75rem;
+	--mol_gap_round: .25rem;
+	--mol_gap_space: .25rem;
+	--mol_gap_blur: .5rem;
+}
+</style><style id="$mol_style_attach:mol/view/view/view.css">[mol_view] {
+	transition-property: height, width, min-height, min-width, max-width, max-height, transform;
+	transition-duration: .2s;
+	transition-timing-function: ease-out;
+	-webkit-appearance: none;
+	box-sizing: border-box;
+	display: flex;
+	flex-shrink: 0;
+	contain: style;
+	scrollbar-color: var(--mol_theme_line) transparent;
+	scrollbar-width: thin;
+}	
+
+[mol_view]::selection {
+	background: var(--mol_theme_line);
+}	
+
+[mol_view]::-webkit-scrollbar {
+	width: .25rem;
+	height: .25rem;
+}
+
+[mol_view]::-webkit-scrollbar-corner {
+	background-color: var(--mol_theme_line);
+}
+
+[mol_view]::-webkit-scrollbar-track {
+	background-color: transparent;
+}
+
+[mol_view]::-webkit-scrollbar-thumb {
+	background-color: var(--mol_theme_line);
+	border-radius: var(--mol_gap_round);
+}
+
+[mol_view] > * {
+	word-break: inherit;
+}
+
+[mol_view_root] {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font-size: 1rem;
+	line-height: 1.5rem;
+	background: var(--mol_theme_back);
+	color: var(--mol_theme_text);
+	contain: unset; /** Fixes bg ignoring when applied to body on Chrome */
+	tab-size: 4;
+	overscroll-behavior: contain; /** Disable navigation gestures **/
+}
+
+@media print {
+	[mol_view_root] {
+		height: auto;
+	}
+}
+[mol_view][mol_view_error]:not([mol_view_error="Promise"], [mol_view_error="$mol_promise_blocker"]) {
+	background-image: repeating-linear-gradient(
+		-45deg,
+		#f92323,
+		#f92323 .5rem,
+		#ff3d3d .5rem,
+		#ff3d3d 1.5rem
+	);
+	color: black;
+	align-items: center;
+	justify-content: center;
+}
+
+@keyframes mol_view_wait {
+	from {
+		opacity: .25;
+	}
+	20% {
+		opacity: .75;
+	}
+	to {
+		opacity: .25;
+	}
+}
+
+:where([mol_view][mol_view_error="$mol_promise_blocker"]),
+:where([mol_view][mol_view_error="Promise"]) {
+	background: var(--mol_theme_hover);
+}
+
+[mol_view][mol_view_error="Promise"] {
+	animation: mol_view_wait 1s steps(20,end) infinite;
+}
+</style><style id="$mol_style_attach:$mol_scroll">[mol_scroll] {
+	display: grid;
+	overflow: auto;
+	flex-shrink: 1;
+	flex-grow: 1;
+	flex-direction: column;
+	outline: none;
+	align-items: flex-start;
+	align-self: stretch;
+	box-sizing: border-box;
+	will-change: scroll-position;
+	scroll-padding: 0.75rem 0;
+	max-height: 100%;
+	max-width: 100%;
+	webkit-overflow-scrolling: touch;
+	contain: content;
+}
+[mol_scroll] > :where([mol_view]) {
+	grid-area: 1/1;
+}
+[mol_scroll]::before {
+	display: none;
+}
+[mol_scroll]::after {
+	display: none;
+}
+[mol_scroll]::-webkit-scrollbar {
+	width: 0.25rem;
+	height: 0.25rem;
+}
+@media print {
+[mol_scroll] {
+	overflow: hidden;
+	contain: none;
+	max-height: unset;
+}
+}
+</style><style id="$mol_style_attach:mol/layer/layer.css">:root {
+	--mol_layer_hover: 1;
+	--mol_layer_focus: 2;
+	--mol_layer_speck: 3;
+	--mol_layer_float: 4;
+	--mol_layer_popup: 5;
+}
+</style><style id="$mol_style_attach:mol/book2/book2.view.css">[mol_book2] {
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: stretch;
+	flex: 1 1 auto;
+	align-self: stretch;
+	margin: 0;
+	/* box-shadow: 0 0 0 1px var(--mol_theme_line); */
+	/* transform: translateZ(0); */
+	transition: none;
+	scroll-snap-type: x mandatory;
+	/* padding: 0 1px;
+	scroll-padding: 0 1px;
+	gap: 1px; */
+}
+
+[mol_book2] > * {
+/* 	flex: none; */
+	scroll-snap-stop: always;
+	scroll-snap-align: end;
+	position: relative;
+	min-height: 100%;
+	max-height: 100%;
+	max-width: 100%;
+	flex-shrink: 0;
+	box-shadow: inset 0 0 0 1px var(--mol_theme_field);
+}
+
+[mol_book2] > *:not(:first-of-type):before,
+[mol_book2] > *:not(:last-of-type)::after {
+	content: '';
+	position: absolute;
+	top: 1.5rem;
+	width: 3px;
+	height: 1rem;
+	background: linear-gradient(
+		to bottom,
+		var(--mol_theme_focus) 0%,
+		var(--mol_theme_focus) 14%,
+		transparent 15%,
+		transparent 42%,
+		var(--mol_theme_focus) 43%,
+		var(--mol_theme_focus) 57%,
+		transparent 58%,
+		transparent 85%,
+		var(--mol_theme_focus) 86%,
+		var(--mol_theme_focus) 100%
+	);
+	opacity: .5;
+	z-index: var(--mol_layer_speck);
+}
+[mol_book2] > *:not(:first-of-type):before {
+	left: -1px;
+}
+[mol_book2] > *:not(:last-of-type)::after {
+	right: -1px;
+}
+
+:where([mol_book2]) > * {
+	background-color: var(--mol_theme_card);
+	/* box-shadow: 0 0 0 1px var(--mol_theme_back); */
+}
+
+[mol_book2] > [mol_book2] {
+	display: contents;
+}
+
+[mol_book2] > *:first-child {
+	scroll-snap-align: start;
+}
+
+[mol_book2] > [mol_view] {
+	transform: none; /* prevent content clipping */
+}
+
+[mol_book2_placeholder] {
+	flex: 1 1 0;
+	background: none;
+}
+
+[mol_book2_gap] {
+	background: none;
+	flex-grow: 1;
+	scroll-snap-align: none;
+	margin-right: -1px;
+	box-shadow: none;
+}
+
+[mol_book2_gap]::before,
+[mol_book2_gap]::after {
+	display: none;
+}
+</style><style id="$mol_style_attach:$mol_link">[mol_link] {
+	text-decoration: none;
+	color: var(--mol_theme_control);
+	stroke: currentcolor;
+	cursor: pointer;
+	padding: var(--mol_gap_text);
+	box-sizing: border-box;
+	position: relative;
+	min-width: 2.5rem;
+	gap: var(--mol_gap_space);
+	border-radius: var(--mol_gap_round);
+}
+[mol_link]:hover {
+	background-color: var(--mol_theme_hover);
+}
+[mol_link]:focus {
+	outline: none;
+	background-color: var(--mol_theme_hover);
+}
+[mol_link]:active {
+	color: var(--mol_theme_focus);
+}
+[mol_link]:where([mol_link_current="true"]) {
+	color: var(--mol_theme_current);
+	text-shadow: 0 0;
+}
+</style><style id="$mol_style_attach:mol/svg/root/root.view.css">[mol_svg_root] {
+	overflow: hidden;
+}
+</style><style id="$mol_style_attach:mol/icon/icon.view.css">[mol_icon] {
+	fill: currentColor;
+	stroke: none;
+	width: 1em;
+	height: 1.5em;
+	flex: 0 0 auto;
+	vertical-align: top;
+	display: inline-block;
+	filter: drop-shadow(0px 1px 1px var(--mol_theme_back));
+	transform-origin: center;
+}
+
+[mol_icon_path] {
+	transform-origin: center;
+}
+</style><style id="$mol_style_attach:mol/speck/speck.view.css">[mol_speck] {
+	font-size: .75rem;
+	border-radius: 1rem;
+	margin: -0.5rem -0.2rem;
+	align-self: flex-start;
+	min-height: 1em;
+	vertical-align: sub;
+	padding: 0 .2rem;
+	position: absolute;
+	z-index: var(--mol_layer_speck);
+	text-align: center;
+	line-height: .9;
+	display: inline-block;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	user-select: none;
+	box-shadow: 0 0 3px rgba(0,0,0,.5);
+}
+</style><style id="$mol_style_attach:mol/button/button.view.css">[mol_button] {
+	border: none;
+	font: inherit;
+	display: inline-flex;
+	flex-shrink: 0;
+	text-decoration: inherit;
+	cursor: inherit;
+	position: relative;
+	box-sizing: border-box;
+	word-break: normal;
+	cursor: default;
+	user-select: none;
+	border-radius: var(--mol_gap_round);
+	background: transparent;
+	color: inherit;
+}
+
+[mol_button]:where(:not(:disabled)):hover {
+	z-index: var(--mol_layer_hover);
+}
+
+[mol_button]:focus {
+	outline: none;
+	z-index: var(--mol_layer_focus);
+}
+</style><style id="$mol_style_attach:mol/button/typed/typed.view.css">[mol_button_typed] {
+	align-content: center;
+	align-items: center;
+	padding: var(--mol_gap_text);
+	border-radius: var(--mol_gap_round);
+	gap: var(--mol_gap_space);
+	user-select: none;
+	cursor: pointer;
+}
+
+[mol_button_typed][disabled] {
+	pointer-events: none;
+}
+
+[mol_button_typed]:hover ,
+[mol_button_typed]:focus {
+	box-shadow: inset 0 0 0 10rem var(--mol_theme_hover);
+}
+
+[mol_button_typed]:active {
+	color: var(--mol_theme_focus);
+}
+
+</style><style id="$mol_style_attach:mol/button/minor/minor.view.css">[mol_button_minor] {
+	color: var(--mol_theme_control);
+}
+
+[mol_button_minor][disabled] {
+	color: var(--mol_theme_shade);
+}
+</style><style id="$mol_style_attach:mol/check/check.css">[mol_check] {
+	flex: 0 0 auto;
+	justify-content: flex-start;
+	align-content: center;
+	/* align-items: flex-start; */
+	border: none;
+	font-weight: inherit;
+	box-shadow: none;
+	text-align: left;
+	display: inline-flex;
+	flex-wrap: nowrap;
+}
+
+[mol_check_title] {
+	flex-shrink: 1;
+}
+</style><style id="$mol_style_attach:mol/check/icon/icon.view.css">[mol_check_icon]:where([mol_check_checked]) {
+	color: var(--mol_theme_current);
+}
+</style><style id="$mol_style_attach:mol/list/list.view.css">[mol_list] {
+	will-change: contents;
+	display: flex;
+	flex-direction: column;
+	flex-shrink: 0;
+	max-width: 100%;
+	/* display: flex;
+	align-items: stretch;
+	align-content: stretch; */
+	transition: none;
+	min-height: 1.5rem;
+}
+
+[mol_list_gap_before] ,
+[mol_list_gap_after] {
+	display: block !important;
+	flex: none;
+	transition: none;
+	overflow-anchor: none;
+}
+</style><style id="$mol_style_attach:$mol_page">[mol_page] {
+	display: flex;
+	flex-direction: column;
+	flex-basis: auto;
+	position: relative;
+	align-self: stretch;
+	max-width: 100%;
+	max-height: 100%;
+	box-sizing: border-box;
+	color: var(--mol_theme_text);
+}
+[mol_page]:focus {
+	outline: none;
+}
+[mol_page_head] {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+	flex: none;
+	position: relative;
+	margin: 0;
+	min-height: 4rem;
+	padding: var(--mol_gap_block);
+	background-color: var(--mol_theme_card);
+	border-radius: var(--mol_gap_round);
+	box-shadow: 0 -0.5rem 0.5rem -0.5rem hsla(0,0%,0%,0.25),0 0.5rem 0.5rem -0.5rem hsla(0,0%,0%,0.25);
+	z-index: 2;
+}
+@media print {
+[mol_page_head] {
+	box-shadow: 0 1px 0 0 hsla(0,0%,0%,0.25);
+}
+}
+[mol_page_title] {
+	min-height: 2rem;
+	margin: 0;
+	padding: var(--mol_gap_text);
+	gap: var(--mol_gap_text);
+	word-break: normal;
+	text-shadow: 0 0;
+	font-weight: normal;
+	font-size: inherit;
+	flex-basis: auto;
+	flex-shrink: 1;
+	flex-grow: 1;
+}
+[mol_page_tools] {
+	flex-shrink: 1;
+	flex-grow: 0;
+	flex-basis: auto;
+	display: flex;
+	justify-content: flex-end;
+	align-items: flex-start;
+	flex-wrap: wrap;
+}
+@media print {
+[mol_page_tools] {
+	display: none;
+}
+}
+[mol_page_body] {
+	flex-basis: 100%;
+	flex-shrink: 1;
+	flex-grow: 1000;
+}
+[mol_page_body_content] {
+	padding: var(--mol_gap_block);
+	flex-grow: 1;
+	flex-shrink: 1;
+	flex-direction: column;
+	justify-self: stretch;
+}
+[mol_page_foot] {
+	display: flex;
+	justify-content: space-between;
+	flex: none;
+	margin: 0;
+	background-color: var(--mol_theme_card);
+	border-radius: var(--mol_gap_round);
+	box-shadow: 0 -0.5rem 0.5rem -0.5rem hsla(0,0%,0%,0.25),0 0.5rem 0.5rem -0.5rem hsla(0,0%,0%,0.25);
+	z-index: 1;
+	padding: var(--mol_gap_block);
+}
+[mol_page_foot]:empty {
+	display: none;
+}
+</style><style id="$mol_style_attach:mol/pop/pop.view.css">[mol_pop] {
+	position: relative;
+	display: inline-flex;
+}
+
+[mol_pop_bubble] {
+	box-shadow: 0 0 1rem hsla(0,0%,0%,.5);
+	border-radius: var(--mol_gap_round);
+	position: absolute;
+	z-index: var(--mol_layer_popup);
+	background: var(--mol_theme_back);
+	max-width: none;
+	max-height: none;
+	/* overflow: hidden;
+	overflow-y: scroll;
+	overflow-y: overlay; */
+	word-break: normal;
+	width: max-content;
+	/* height: max-content; */
+	flex-direction: column;
+	max-width: 80vw;
+	max-height: 80vw;
+	contain: paint;
+	transition-property: opacity;
+}
+
+:where( [mol_pop_bubble] > * ) {
+	background: var(--mol_theme_card);
+}
+
+[mol_pop_bubble][mol_scroll] {
+	background: var(--mol_theme_back);
+}
+
+[mol_pop_bubble]:focus {
+	outline: none;
+}
+
+[mol_pop_align="suspense_suspense"] {
+	opacity: 0;
+}
+
+[mol_pop_align="left_top"] {
+	transform: translate(-100%);
+	left: 0;
+	bottom: 0;
+}
+
+[mol_pop_align="left_center"] {
+	transform: translate(-100%, -50%);
+	left: 0;
+	top: 50%;
+}
+
+[mol_pop_align="left_bottom"] {
+	transform: translate(-100%);
+	left: 0;
+	top: 0;
+}
+
+[mol_pop_align="right_top"] {
+	transform: translate(100%);
+	right: 0;
+	bottom: 0;
+}
+
+[mol_pop_align="right_center"] {
+	transform: translate(100%, -50%);
+	right: 0;
+	top: 50%;
+}
+
+[mol_pop_align="right_bottom"] {
+	transform: translate(100%);
+	right: 0;
+	top: 0;
+}
+
+[mol_pop_align="center"] {
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+[mol_pop_align="top_left"] {
+	right: 0;
+	bottom: 100%;
+}
+
+[mol_pop_align="top_center"] {
+	transform: translate(-50%);
+	left: 50%;
+	bottom: 100%;
+}
+
+[mol_pop_align="top_right"] {
+	left: 0;
+	bottom: 100%;
+}
+
+[mol_pop_align="bottom_left"] {
+	right: 0;
+	top: 100%;
+}
+
+[mol_pop_align="bottom_center"] {
+	transform: translate(-50%);
+	left: 50%;
+	top: 100%;
+}
+
+[mol_pop_align="bottom_right"] {
+	left: 0;
+	top: 100%;
+}
+</style><style id="$mol_style_attach:mol/string/string.view.css">[mol_string] {
+	box-sizing: border-box;
+	outline-offset: 0;
+	border: none;
+	border-radius: var(--mol_gap_round);
+	white-space: pre-line;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	padding: var(--mol_gap_text);
+	text-align: left;
+	position: relative;
+	font: inherit;
+	flex: 1 1 auto;
+	background: transparent;
+	min-width: 0;
+	color: inherit;
+	background: var(--mol_theme_field);
+}
+
+[mol_string]:disabled:not(:placeholder-shown) {
+	background-color: transparent;
+	color: var(--mol_theme_text);
+}
+
+[mol_string]:where(:not(:disabled)) {
+	box-shadow: inset 0 0 0 1px var(--mol_theme_line);
+}
+
+[mol_string]:where(:not(:disabled)):hover {
+	box-shadow: inset 0 0 0 2px var(--mol_theme_line);
+	z-index: var(--mol_layer_hover);
+}
+
+[mol_string]:focus {
+	outline: none;
+	z-index: var(--mol_layer_focus);
+	color: var(--mol_theme_text);
+	box-shadow: inset 0 0 0 1px var(--mol_theme_focus);
+}
+
+[mol_string]::placeholder {
+	color: var(--mol_theme_shade);
+}
+
+[mol_string]::-ms-clear {
+	display: none;
+}
+</style><style id="$mol_style_attach:mol/paragraph/paragraph.view.css">:where([mol_paragraph]) {
+	margin: 0;
+	max-width: 100%;
+}
+</style><style id="$mol_style_attach:mol/dimmer/dimmer.view.css">[mol_dimmer] {
+	display: block;
+	max-width: 100%;
+}
+
+[mol_dimmer_low] {
+	display: inline;
+	opacity: 0.8;
+}
+
+[mol_dimmer_high] {
+	display: inline;
+	color: var(--mol_theme_focus);
+	text-shadow: 0 0;
+}
+</style><style id="$mol_style_attach:mol/search/search.view.css">[mol_search] {
+	align-self: flex-start;
+	flex: auto;
+}
+
+[mol_search_anchor] {
+	flex: 1 1 auto;
+}
+
+[mol_search_query] {
+	flex-grow: 1;
+}
+
+[mol_search_menu] {
+	min-height: .75rem;
+	display: flex;
+}
+
+[mol_search_suggest] {
+	text-align: left;
+}
+
+[mol_search_suggest_label_high] {
+	color: var(--mol_theme_shade);
+	text-shadow: none;
+}
+</style><style id="$mol_style_attach:mol/labeler/labeler.view.css">[mol_labeler] {
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	cursor: inherit;
+}
+
+[mol_labeler_label] {
+	min-height: 2rem;
+	color: var(--mol_theme_shade);
+	padding: .5rem .75rem 0;
+	gap: 0 var(--mol_gap_block);
+	flex-wrap: wrap;
+}
+
+[mol_labeler_content] {
+	display: flex;
+	padding: var(--mol_gap_text);
+}
+</style><style id="$mol_style_attach:mol/form/field/field.view.css">[mol_form_field] {
+	align-items: stretch;
+}
+
+[mol_form_field_bid] {
+	color: var(--mol_theme_focus);
+	display: inline-block;
+	text-shadow: 0 0;
+}
+
+[mol_form_field_content] {
+	border-radius: var(--mol_gap_round);
+}
+</style><style id="$mol_style_attach:mol/stack/stack.view.css">[mol_stack] {
+	display: grid;
+	/* width: max-content; */
+	/* height: max-content; */
+	align-items: flex-start;
+	justify-items: flex-start;
+}
+
+[mol_stack] > * {
+	grid-area: 1/1;
+}
+</style><style id="$mol_style_attach:$mol_text_code_token">[mol_text_code_token] {
+	display: inline;
+	text-decoration: none;
+}
+[mol_text_code_token]:where([mol_text_code_token_type="code-docs"]) {
+	opacity: 0.75;
+}
+[mol_text_code_token]:where([mol_text_code_token_type="code-comment-block"]) {
+	opacity: 0.5;
+}
+[mol_text_code_token]:where([mol_text_code_token_type="code-comment-inline"]) {
+	opacity: 0.5;
+}
+[mol_text_code_token]:where([mol_text_code_token_type="code-link"]) {
+	color: hsla(210,60%,50%,1);
+}
+[mol_text_code_token]:where([mol_text_code_token_type="code-call"]) {
+	color: hsla(270,60%,50%,1);
+}
+[mol_text_code_token]:where([mol_text_code_token_type="code-number"]) {
+	color: hsla(55,65%,45%,1);
+}
+[mol_text_code_token]:where([mol_text_code_token_type="code-string"]) {
+	color: hsla(90,40%,50%,1);
+}
+[mol_text_code_token]:where([mol_text_code_token_type="code-punctuation"]) {
+	color: hsla(0,0%,50%,1);
+}
+[mol_text_code_token]:where([mol_text_code_token_type="code-decorator"]) {
+	color: hsla(180,40%,50%,1);
+}
+[mol_text_code_token]:where([mol_text_code_token_type="code-global"]) {
+	color: hsla(30,80%,50%,1);
+}
+[mol_text_code_token]:where([mol_text_code_token_type="code-tag"]) {
+	color: hsla(330,70%,50%,1);
+}
+[mol_text_code_token]:where([mol_text_code_token_type="code-field"]) {
+	color: hsla(300,70%,50%,1);
+}
+[mol_text_code_token]:where([mol_text_code_token_type="code-keyword"]) {
+	color: hsla(0,70%,60%,1);
+}
+</style><style id="$mol_style_attach:$mol_text_code_line">[mol_text_code_line] {
+	display: block;
+	position: relative;
+	font-family: monospace;
+}
+[mol_text_code_line_numb] {
+	text-align: right;
+	color: var(--mol_theme_shade);
+	width: 3rem;
+	margin-left: -4rem;
+	display: inline-block;
+	white-space: nowrap;
+	user-select: none;
+	position: absolute;
+}
+</style><style id="$mol_style_attach:$mol_text_code">[mol_text_code] {
+	white-space: pre-wrap;
+	font-family: monospace;
+}
+[mol_text_code_rows] {
+	padding: var(--mol_gap_text);
+}
+[mol_text_code_row] {
+	font-family: inherit;
+}
+[mol_text_code_copy] {
+	align-self: flex-start;
+	justify-self: flex-start;
+}
+[mol_text_code]:where([mol_text_code_sidebar_showed="true"]) :where([mol_text_code_line]) {
+	margin-left: 1.75rem;
+}
+</style><style id="$mol_style_attach:mol/textarea/textarea.view.css">[mol_textarea] {
+	flex: 1 0 auto;
+	flex-direction: column;
+	vertical-align: top;
+	min-height: max-content;
+	white-space: pre-wrap;
+	word-break: break-word;
+	border-radius: var(--mol_gap_round);
+	font-family: monospace;
+	position: relative;
+	tab-size: 4;
+}
+
+[mol_textarea_view] {
+	pointer-events: none;
+	white-space: inherit;
+	font-family: inherit;
+	tab-size: inherit;
+	user-select: none;
+}
+
+[mol_textarea_view_copy] {
+	pointer-events: all;
+}
+
+[mol_textarea_clickable] > [mol_textarea_view] {
+	pointer-events: all;
+	user-select: auto;
+}
+
+[mol_textarea_clickable] > [mol_textarea_edit] {
+	user-select: none;
+}
+
+[mol_textarea_edit] {
+	font-family: inherit;
+	padding: var(--mol_gap_text);
+	color: transparent !important;
+	caret-color: var(--mol_theme_text);
+	resize: none;
+	text-align: inherit;
+	white-space: inherit;
+	border-radius: inherit;
+	overflow-anchor: none;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	tab-size: inherit;
+}
+
+[mol_textarea_sidebar_showed] [mol_textarea_edit] {
+	left: 1.75rem;
+	width: calc( 100% - 1.75rem );
+}
+
+[mol_textarea_edit]:hover + [mol_textarea_view] {
+	z-index: var(--mol_layer_hover);
+}
+
+[mol_textarea_edit]:focus + [mol_textarea_view] {
+	z-index: var(--mol_layer_focus);
+}
+</style><style id="$mol_style_attach:mol/check/list/list.view.css">[mol_check_list] {
+	display: flex;
+	flex-wrap: wrap;
+	flex: 1 1 auto;
+	border-radius: var(--mol_gap_round);
+	gap: 1px;
+}
+
+[mol_check_list_option] {
+	flex: 0 1 auto;
+}
+
+[mol_check_list_option]:where([mol_check_checked="true"]) {
+	text-shadow: 0 0;
+	color: var(--mol_theme_current);
+}
+
+[mol_check_list_option]:where([mol_check_checked="true"][disabled]) {
+	color: var(--mol_theme_text);
+}
+</style><style id="$mol_style_attach:mol/button/major/major.view.css">[mol_button_major] {
+	background-color: var(--mol_theme_back);
+	color: var(--mol_theme_text);
+}
+</style><style id="$mol_style_attach:mol/row/row.view.css">[mol_row] {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	align-content: flex-start;
+	justify-content: flex-start;
+	padding: var(--mol_gap_block);
+	gap: var(--mol_gap_block);
+	flex: 0 0 auto;
+	box-sizing: border-box;
+	max-width: 100%;
+}
+
+[mol_row] > * {
+	max-width: 100%;
+}
+</style><style id="$mol_style_attach:mol/form/form.view.css">[mol_form] {
+	gap: var(--mol_gap_block);
+}
+
+[mol_form_body] {
+	gap: var(--mol_gap_block);
+}</style><style id="$mol_style_attach:hyoo/scout/suggest/suggest.view.css">[hyoo_scout_suggest] {
+	flex: 1000 0 30rem;
+}
+
+[hyoo_scout_suggest_form] [mol_switch] {
+	background: var(--mol_theme_field);
+}
+
+[hyoo_scout_suggest_duration_option] ,
+[hyoo_scout_suggest_prep_option] {
+	flex: 1 1 6rem;
+}
+
+[hyoo_scout_suggest_age_option] ,
+[hyoo_scout_suggest_place_option] {
+	flex: 1 1 8rem;
+}
+
+[hyoo_scout_suggest_reason_option] {
+	flex: 1 1 10rem;
+}
+</style><style id="$mol_style_attach:mol/float/float.view.css">[mol_float] {
+	position: sticky;
+	top: 0;
+	left: 0;
+	z-index: var(--mol_layer_float);
+	opacity: 1;
+	transition: opacity .25s ease-in;
+	display: block;
+	background: linear-gradient( var(--mol_theme_card), var(--mol_theme_card) ), var(--mol_theme_back);
+	box-shadow: 0 0 .5rem hsla(0,0%,0%,.25);
+}
+
+</style><style id="$mol_style_attach:mol/check/expand/expand.view.css">[mol_check_expand] {
+	min-width: 20px;
+}
+
+:where([mol_check_expand][disabled]) [mol_check_expand_icon] {
+	visibility: hidden;
+}
+
+[mol_check_expand_icon] {
+	box-shadow: none;
+	margin-left: -0.375rem;
+}
+[mol_check_expand_icon] {
+	transform: rotateZ(0deg);
+}
+
+:where([mol_check_checked]) [mol_check_expand_icon] {
+	transform: rotateZ(90deg);
+}
+
+[mol_check_expand_icon] {
+	vertical-align: text-top;
+}
+
+[mol_check_expand_label] {
+	margin-left: 0;
+}
+</style><style id="$mol_style_attach:mol/grid/grid.view.css">[mol_grid] {
+	display: block;
+	flex: 0 1 auto;
+	position: relative;
+	overflow-x: auto;
+}
+
+[mol_grid_gap] {
+	position: absolute;
+	padding: .1px;
+	top: 0;
+	transform: translateZ(0);
+}
+
+[mol_grid_table] {
+	border-spacing: 0;
+	display: table-row-group;
+	position: relative;
+}
+
+[mol_grid_table] > * {
+	display: table-row;
+	transition: none;
+}
+
+[mol_grid_head] > *,
+[mol_grid_table] > * > * {
+	display: table-cell;
+	padding: var(--mol_gap_text);
+	white-space: nowrap;
+	vertical-align: middle;
+	box-shadow: inset 2px 2px 0 -1px var(--mol_theme_line);
+}
+
+[mol_grid_row]:where(:first-child) > * {
+	box-shadow: inset 2px 0 0 -1px var(--mol_theme_line);
+}
+
+[mol_grid_table] > * > *:where(:first-child) {
+	box-shadow: inset 0px 2px 0 -1px var(--mol_theme_line);
+}
+
+[mol_grid_head] > * {
+	box-shadow: inset 2px -2px 0 -1px var(--mol_theme_line);
+}
+
+[mol_grid_head] > *:where(:first-child) {
+	box-shadow: inset 0px -2px 0 -1px var(--mol_theme_line);
+}
+
+[mol_grid_table] > [mol_grid_row]:where(:first-child) > *:where(:first-child) {
+	box-shadow: none;
+}	
+
+[mol_grid_head] {
+	display: table-row;
+	transform: none !important;
+}
+
+/* [mol_grid_cell_number] {
+	text-align: right;
+} */
+
+[mol_grid_col_head] {
+	font-weight: inherit;
+	text-align: inherit;
+	display: table-cell;
+	color: var(--mol_theme_shade);
+}
+
+[mol_grid_cell_dimmer] {
+	display: inline-block;
+	vertical-align: inherit;
+}
+</style><style id="$mol_style_attach:mol/image/image.view.css">[mol_image] {
+	border-radius: var(--mol_gap_round);
+	overflow: hidden;
+	flex: 0 1 auto;
+	max-width: 100%;
+	object-fit: cover;
+	height: fit-content;
+}
+</style><style id="$mol_style_attach:mol/link/iconed/iconed.view.css">[mol_link_iconed] {
+	align-items: baseline;
+	display: inline-flex;
+	padding: var(--mol_gap_text);
+}
+
+[mol_link_iconed_icon] {
+	box-shadow: none;
+	height: 1.5em;
+	width: 1em;
+	flex: 0 0 auto;
+	display: inline-block;
+	align-self: normal;
+	vertical-align: top;
+	border-radius: 0;
+	object-fit: scale-down;
+	opacity: .75;
+}
+
+[mol_theme="$mol_theme_dark"] [mol_link_iconed_icon] {
+	filter: var(--mol_theme_image);
+}
+</style><style id="$mol_style_attach:mol/embed/native/native.view.css">[mol_embed_native] {
+	max-width: 100%;
+	max-height: 100vh;
+	object-fit: cover;
+	display: flex;
+	flex: 1 1 auto;
+	object-position: top left;
+	border-radius: var(--mol_gap_round);
+	aspect-ratio: 4/3;
+}
+</style><style id="$mol_style_attach:$mol_frame">[mol_frame] {
+	border-style: none;
+	max-height: 100vh;
+}
+</style><style id="$mol_style_attach:mol/embed/service/service.view.css">[mol_embed_service] {
+	padding: 0;
+	max-width: 100%;
+}
+
+[mol_embed_service_image] {
+	flex: auto 1 1;
+	width: 100vw;
+}
+
+[mol_embed_service_frame] {
+	width: 100vw;
+}
+
+[mol_embed_service_hint] {
+	position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 50%;
+    height: 50%;
+    opacity: 0.3;
+    transform: translate(-50%, -50%);
+}
+
+[mol_embed_service]:hover [mol_embed_service_hint] {
+	opacity: .6;
+}
+</style><style id="$mol_style_attach:mol/expander/expander.view.css">[mol_expander] {
+	flex-direction: column;
+}
+
+[mol_expander_label] {
+	display: flex;
+	flex-wrap: wrap;
+	border-radius: var(--mol_gap_round);
+}
+
+[mol_expander_trigger] {
+	flex: auto;
+	position: relative;
+}
+</style><style id="$mol_style_attach:mol/text/text/text.view.css">[mol_text] {
+	line-height: 1.5em;
+	box-sizing: border-box;
+	border-radius: var(--mol_gap_round);
+	white-space: pre-line;
+	display: flex;
+	flex-direction: column;
+	flex: 0 0 auto;
+	tab-size: 4;
+}
+
+[mol_text_paragraph] {
+	padding: var(--mol_gap_text);
+	overflow: auto;
+	overflow-x: overlay;
+	max-width: 100%;
+	display: block;
+	max-width: 60rem;
+	break-inside: avoid;
+}
+
+[mol_text_spoiler_label_paragraph] {
+	padding: 0;
+}
+
+[mol_text_span] {
+	display: inline;
+}
+
+[mol_text_string] {
+	display: inline;
+	flex: 0 1 auto;
+	white-space: normal;
+}
+
+[mol_text_quote] {
+	margin: var(--mol_gap_block);
+	padding: var(--mol_gap_block);
+	background: var(--mol_theme_card);
+	box-shadow: 0 0 0 1px var(--mol_theme_back);
+	break-inside: avoid;
+}
+
+[mol_text_header] {
+	display: block;
+	text-shadow: 0 0;
+	font-weight: normal;
+	break-after: avoid;
+}
+
+* + [mol_text_header] {
+	margin-top: 0.75rem;
+}
+
+h1[mol_text_header] {
+	font-size: 1.5rem;
+}
+
+h2[mol_text_header] {
+	font-size: 1.5rem;
+	font-style: italic;
+}
+
+h3[mol_text_header] {
+	font-size: 1.25rem;
+}
+
+h4[mol_text_header] {
+	font-size: 1.25em;
+	font-style: italic;
+}
+
+h5[mol_text_header] {
+	font-size: 1rem;
+}
+
+h6[mol_text_header] {
+	font-size: 1rem;
+	font-style: italic;
+}
+
+[mol_text_header_link] {
+	color: inherit;
+}
+
+[mol_text_table] {
+	break-inside: avoid;
+}
+
+[mol_text_table_cell] {
+	width: auto;
+	display: table-cell;
+	vertical-align: baseline;
+	padding: 0;
+	border-radius: 0;
+}
+
+[mol_text_grid] {
+	break-inside: avoid;
+}
+
+[mol_text_grid_cell] {
+	width: auto;
+	display: table-cell;
+	vertical-align: top;
+	padding: 0;
+	border-radius: 0;
+}
+
+[mol_text_cut] {
+	border: none;
+	width: 100%;
+	box-shadow: 0 0 0 1px var(--mol_theme_line);
+}
+
+[mol_text_link_http],
+[mol_text_link] {
+	padding: 0;
+	display: inline;
+	white-space: nowrap;
+}
+
+[mol_text_link_icon] + [mol_text_embed] {
+	margin-left: -1.5rem;
+}
+
+[mol_text_embed_youtube] {
+	display: inline;
+}
+
+[mol_text_embed_youtube_image],
+[mol_text_embed_youtube_frame],
+[mol_text_embed_object] {
+	object-fit: contain;
+	object-position: center;
+	width: 100vw;
+	max-height: calc( 100vh - 6rem );
+}
+[mol_text_embed_object_fallback] {
+	padding: 0;
+}
+[mol_text_embed_image] {
+	object-fit: contain;
+	object-position: center;
+	display: inline;
+	/* max-height: calc( 100vh - 6rem ); */
+	vertical-align: top;
+}
+
+[mol_text_pre] {
+	white-space: pre;
+	overflow-x: auto;
+	overflow-x: overlay;
+	tab-size: 2;
+	break-inside: avoid;
+}
+
+[mol_text_code_line] {
+	display: inline-block;
+}
+
+[mol_text_type="strong"] {
+	text-shadow: 0 0;
+	filter: contrast(1.5);
+}
+
+[mol_text_type="emphasis"] {
+	font-style: italic;
+}
+
+[mol_text_type="insert"] {
+	color: var(--mol_theme_special);
+}
+
+[mol_text_type="delete"] {
+	color: var(--mol_theme_shade);
+}
+
+[mol_text_type="remark"] {
+	color: var(--mol_theme_shade);
+}
+
+[mol_text_type="quote"] {
+	font-style: italic;
+}
+</style><style id="$mol_style_attach:mol/text/list/list.view.css">[mol_text_list] {
+	padding-left: 1.75rem;
+}
+
+[mol_text_list_item] {
+	contain: none;
+	display: list-item;
+}
+
+[mol_text_list_item]::before {
+	content: attr( mol_text_list_item_index ) ".";
+	width: 1.25rem;
+	display: inline-block;
+	position: absolute;
+	margin-left: -1.75rem;
+	text-align: end;
+}
+
+[mol_text_list_type="-"] > [mol_text_list_item]::before,
+[mol_text_list_type="*"] > [mol_text_list_item]::before {
+	content: "•";
+}
+</style><style id="$mol_style_attach:hyoo/scout/scout.view.css">[hyoo_scout] {
+	--mol_theme_hue: 30deg;
+}
+
+[hyoo_scout_filter] {
+	flex: 0 0 16rem;
+	width: 400px;
+	max-width: 75%;
+}
+
+[hyoo_scout_gists] {
+	flex: 0 0 24rem;
+}
+
+[hyoo_scout_gists_body] {
+	padding: .75rem;
+}
+
+[hyoo_scout_gists_search] {
+	align-self: stretch;
+	flex: none;
+}
+
+[hyoo_scout_gist] {
+	flex: 1000 0 30rem;
+}
+
+[hyoo_scout_gist_body] {
+	display: flex;
+	flex-direction: column;
+	padding: var(--mol_gap_block);
+}
+
+[hyoo_scout_filter_body] {
+	padding: 0;
+}
+
+[hyoo_scout_gist_content] {
+	padding: 0;
+}
+
+[hyoo_scout_filter_aspect] {
+	padding: .75rem;
+	display :flex;
+	flex-direction: column;
+	box-shadow: 0 0 0 1px var(--mol_theme_line);
+	background: var(--mol_theme_back);
+}
+
+[hyoo_scout_filter_aspect_title] {
+	padding: .5rem .75rem;
+	font-weight: 600;
+}
+
+[hyoo_scout_filter_aspect_tags] {
+	padding: 0;
+}
+
+[hyoo_scout_filter_tag] {
+	margin: 0;
+	font-weight: 600;
+}
+
+[hyoo_scout_filter_tag][mol_check_checked] {
+}
+
+[hyoo_scout_gists_favorite] {
+	align-items: center;
+	flex-direction: row-reverse;
+}
+
+[hyoo_scout_gists_favorite_duration] {
+	margin-right: .25rem;
+	color: var(--mol_theme_text);
+}
+
+[hyoo_scout_gist_favorite] {
+	align-items: center;
+}
+
+[hyoo_scout_gist_link] {
+	display: flex;
+}
+
+[hyoo_scout_gist_link_icon] {
+    width: 1.5rem;
+    text-align: center;
+	padding-right: .5rem;
+}
+
+[hyoo_scout_gist_link_title] {
+	flex: 1 1 auto;
+}
+
+[hyoo_scout_gist_content] {
+	box-shadow: none;
+}
+
+[hyoo_scout_gist_aspect] {
+	font-weight: 600;
+}
+
+[hyoo_scout_gist_aspect] > * ,
+[hyoo_scout_gist_aspect] > * > * {
+	margin: 0 .25rem;
+}
+
+[hyoo_scout_gist_remarks] {
+	margin-top: .5rem;
+	flex: 1 0 auto;
+}
+
+[hyoo_scout_tag_id="Любой"] { color: hsl( 100 , 80% , 40% ) }
+[hyoo_scout_tag_id="Малыши"] { color: hsl( 340 , 80% , 40% ) }
+[hyoo_scout_tag_id="Среднячки"] { color: hsl( 280 , 80% , 40% ) }
+[hyoo_scout_tag_id="Старшаки"] { color: hsl( 40 , 80% , 40% ) }
+
+[hyoo_scout_tag_id="Внимание"] { color: hsl( 0 , 80% , 40% ) }
+[hyoo_scout_tag_id="Знакомство"] { color: hsl( 50 , 80% , 40% ) }
+[hyoo_scout_tag_id="Раскрепощение"] { color: hsl( 100 , 80% , 40% ) }
+[hyoo_scout_tag_id="Разминка"] { color: hsl( 150 , 80% , 40% ) }
+[hyoo_scout_tag_id="Творчество"] { color: hsl( 200 , 80% , 40% ) }
+[hyoo_scout_tag_id="Сплочение"] { color: hsl( 250 , 80% , 40% ) }
+[hyoo_scout_tag_id="Обратная связь"] { color: hsl( 300 , 80% , 40% ) }
+[hyoo_scout_tag_id="Обсуждение"] { color: hsl( 350 , 80% , 40% ) }
+[hyoo_scout_tag_id="Лидерство"] { color: hsl( 30 , 80% , 40% ) }
+[hyoo_scout_tag_id="Доверие"] { color: hsl( 80 , 80% , 40% ) }
+[hyoo_scout_tag_id="Усвоение"] { color: hsl( 130 , 80% , 40% ) }
+[hyoo_scout_tag_id="Мышление"] { color: hsl( 180 , 80% , 40% ) }
+[hyoo_scout_tag_id="Развлечение"] { color: hsl( 230 , 80% , 40% ) }
+
+[hyoo_scout_tag_id="Нет"] { color: hsl( 100 , 80% , 40% ) }
+[hyoo_scout_tag_id="Особый"] { color: hsl( 150 , 80% , 40% ) }
+[hyoo_scout_tag_id="Бумага"] { color: hsl( 200 , 80% , 40% ) }
+[hyoo_scout_tag_id="Скотч"] { color: hsl( 250 , 80% , 40% ) }
+[hyoo_scout_tag_id="Стикеры"] { color: hsl( 300 , 80% , 40% ) }
+[hyoo_scout_tag_id="Карандаши"] { color: hsl( 350 , 80% , 40% ) }
+[hyoo_scout_tag_id="Ручки"] { color: hsl( 40 , 80% , 40% ) }
+[hyoo_scout_tag_id="Платочек"] { color: hsl( 90 , 80% , 40% ) }
+[hyoo_scout_tag_id="Удобная обувь"] { color: hsl( 140 , 80% , 40% ) }
+[hyoo_scout_tag_id="Мешочек"] { color: hsl( 190 , 80% , 40% ) }
+[hyoo_scout_tag_id="Стол"] { color: hsl( 240 , 80% , 40% ) }
+
+[hyoo_scout_tag_id="Нет"] { color: hsl( 100 , 80% , 40% ) }
+[hyoo_scout_tag_id="1 минута"] { color: hsl( 150 , 80% , 40% ) }
+[hyoo_scout_tag_id="5 минут"] { color: hsl( 200 , 80% , 40% ) }
+[hyoo_scout_tag_id="10 минут"] { color: hsl( 250 , 80% , 40% ) }
+[hyoo_scout_tag_id="20 минут"] { color: hsl( 300 , 80% , 40% ) }
+[hyoo_scout_tag_id="30 минут"] { color: hsl( 350 , 80% , 40% ) }
+[hyoo_scout_tag_id="40 минут"] { color: hsl( 40 , 80% , 40% ) }
+
+[hyoo_scout_tag_id="Любое"] { color: hsl( 100 , 80% , 40% ) }
+[hyoo_scout_tag_id="Зал"] { color: hsl( 150 , 80% , 40% ) }
+[hyoo_scout_tag_id="Просторное"] { color: hsl( 200 , 80% , 40% ) }
+[hyoo_scout_tag_id="Тихое"] { color: hsl( 250 , 80% , 40% ) }
+
+[hyoo_scout_feedback] {
+	display: block;
+	padding: .5rem 1.5rem;
+}
+
+:not([mol_check_checked]) > [hyoo_scout_filter_tag_title] {
+	color: var(--mol_theme_shade);
+}
+
+</style></head><body mol_view_root="">
+
+<div mol_view_root="$hyoo_scout">
+<article id="$hyoo_scout.Root(0).Filter()" hyoo_scout_filter="" mol_page="" mol_view="" style="min-height: 64px; min-width: 40px;" tabindex="-1"><header id="$hyoo_scout.Root(0).Filter().Head()" mol_page_head="" hyoo_scout_filter_head="" mol_view="" style="min-height: 64px; min-width: 40px;"><h1 id="$hyoo_scout.Root(0).Filter().Title()" mol_page_title="" hyoo_scout_filter_title="" mol_view="" style="min-height: 0px; min-width: 0px;">Фильтры</h1><mol_view id="$hyoo_scout.Root(0).Filter().Tools()" mol_page_tools="" hyoo_scout_filter_tools="" mol_view="" style="min-height: 40px; min-width: 40px;"><a id="$hyoo_scout.Root(0).Source()" hyoo_scout_source="" mol_link_source="" mol_link="" mol_view="" style="min-height: 24px; min-width: 16px;" href="https://github.com/hyoo-ru/scout.hyoo.ru/" title="" target="_blank" rel=""><svg id="$hyoo_scout.Root(0).Source().Icon()" mol_link_source_icon="" hyoo_scout_source_icon="" mol_icon_script_text="" mol_icon="" mol_svg_root="" mol_svg="" mol_view="" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid"><path id="$hyoo_scout.Root(0).Source().Icon().Path()" mol_icon_script_text_path="" mol_icon_path="" mol_link_source_icon_path="" hyoo_scout_source_icon_path="" mol_svg_path="" mol_svg="" mol_view="" d="M17.8,20C17.4,21.2 16.3,22 15,22H5C3.3,22 2,20.7 2,19V18H5L14.2,18C14.6,19.2 15.7,20 17,20H17.8M19,2C20.7,2 22,3.3 22,5V6H20V5C20,4.4 19.6,4 19,4C18.4,4 18,4.4 18,5V18H17C16.4,18 16,17.6 16,17V16H5V5C5,3.3 6.3,2 8,2H19M8,6V8H15V6H8M8,10V12H14V10H8Z"></path></svg></a><mol_lights_toggle id="$hyoo_scout.Root(0).Lights()" hyoo_scout_lights="" mol_lights_toggle="" mol_check_icon="" mol_check="" mol_button_minor="" mol_button_typed="" mol_button="" mol_view="" style="min-height: 40px; min-width: 40px;" role="checkbox" tabindex="0" title="" aria-checked="undefined"><svg id="$hyoo_scout.Root(0).Lights().Lights_icon()" mol_lights_toggle_lights_icon="" hyoo_scout_lights_lights_icon="" mol_icon_brightness_4="" mol_icon="" mol_svg_root="" mol_svg="" mol_view="" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid"><path id="$hyoo_scout.Root(0).Lights().Lights_icon().Path()" mol_icon_brightness_4_path="" mol_icon_path="" mol_lights_toggle_lights_icon_path="" hyoo_scout_lights_lights_icon_path="" mol_svg_path="" mol_svg="" mol_view="" d="M12,18C11.11,18 10.26,17.8 9.5,17.45C11.56,16.5 13,14.42 13,12C13,9.58 11.56,7.5 9.5,6.55C10.26,6.2 11.11,6 12,6A6,6 0 0,1 18,12A6,6 0 0,1 12,18M20,8.69V4H15.31L12,0.69L8.69,4H4V8.69L0.69,12L4,15.31V20H8.69L12,23.31L15.31,20H20V15.31L23.31,12L20,8.69Z"></path></svg></mol_lights_toggle></mol_view></header><mol_scroll id="$hyoo_scout.Root(0).Filter().Body()" mol_page_body="" hyoo_scout_filter_body="" mol_scroll="" mol_view="" style="min-height: 0px; min-width: 0px;" tabindex="-1"><mol_view id="$hyoo_scout.Root(0).Filter().Body_content()" mol_page_body_content="" hyoo_scout_filter_body_content="" mol_view="" style="min-height: 240px; min-width: 1px;"><mol_list id="$hyoo_scout.Root(0).Filter_aspects()" hyoo_scout_filter_aspects="" mol_list="" mol_view="" style="min-height: 240px; min-width: 1px;"><mol_list id="$hyoo_scout.Root(0).Filter_aspect('Возраст')" hyoo_scout_filter_aspect="" mol_list="" mol_view="" style="min-height: 40px; min-width: 1px;"><mol_view id="$hyoo_scout.Root(0).Filter_aspect_title('Возраст')" hyoo_scout_filter_aspect_title="" mol_view="" style="min-height: 0px; min-width: 0px;">Возраст</mol_view><mol_row id="$hyoo_scout.Root(0).Filter_aspect_tags('Возраст')" hyoo_scout_filter_aspect_tags="" mol_row="" mol_view="" style="min-height: 40px; min-width: 40px;"><mol_check id="$hyoo_scout.Root(0).Filter_tag({'aspect':'Возраст','tag':'Любой'})" hyoo_scout_filter_tag="" mol_check="" mol_button_minor="" mol_button_typed="" mol_button="" mol_view="" style="min-height: 40px; min-width: 40px;" role="checkbox" tabindex="0" title="" mol_check_checked="true" aria-checked="true"><mol_view id="$hyoo_scout.Root(0).Filter_tag_title({'aspect':'Возраст','tag':'Любой'})" hyoo_scout_filter_tag_title="" mol_view="" style="min-height: 0px; min-width: 0px;" hyoo_scout_tag_id="Любой">Любой</mol_view></mol_check><mol_check id="$hyoo_scout.Root(0).Filter_tag({'aspect':'Возраст','tag':'Среднячки'})" hyoo_scout_filter_tag="" mol_check="" mol_button_minor="" mol_button_typed="" mol_button="" mol_view="" style="min-height: 40px; min-width: 40px;" role="checkbox" tabindex="0" title="" mol_check_checked="true" aria-checked="true"><mol_view id="$hyoo_scout.Root(0).Filter_tag_title({'aspect':'Возраст','tag':'Среднячки'})" hyoo_scout_filter_tag_title="" mol_view="" style="min-height: 0px; min-width: 0px;" hyoo_scout_tag_id="Среднячки">Среднячки</mol_view></mol_check><mol_check id="$hyoo_scout.Root(0).Filter_tag({'aspect':'Возраст','tag':'Старшаки'})" hyoo_scout_filter_tag="" mol_check="" mol_button_minor="" mol_button_typed="" mol_button="" mol_view="" style="min-height: 40px; min-width: 40px;" role="checkbox" tabindex="0" title="" mol_check_checked="true" aria-checked="true"><mol_view id="$hyoo_scout.Root(0).Filter_tag_title({'aspect':'Возраст','tag':'Старшаки'})" hyoo_scout_filter_tag_title="" mol_view="" style="min-height: 0px; min-width: 0px;" hyoo_scout_tag_id="Старшаки">Старшаки</mol_view></mol_check></mol_row></mol_list><mol_list id="$hyoo_scout.Root(0).Filter_aspect('Реквизит')" hyoo_scout_filter_aspect="" mol_list="" mol_view="" style="min-height: 40px; min-width: 1px;"><mol_view id="$hyoo_scout.Root(0).Filter_aspect_title('Реквизит')" hyoo_scout_filter_aspect_title="" mol_view="" style="min-height: 0px; min-width: 0px;">Реквизит</mol_view><mol_row id="$hyoo_scout.Root(0).Filter_aspect_tags('Реквизит')" hyoo_scout_filter_aspect_tags="" mol_row="" mol_view="" style="min-height: 40px; min-width: 40px;"><mol_check id="$hyoo_scout.Root(0).Filter_tag({'aspect':'Реквизит','tag':'Бумага'})" hyoo_scout_filter_tag="" mol_check="" mol_button_minor="" mol_button_typed="" mol_button="" mol_view="" style="min-height: 40px; min-width: 40px;" role="checkbox" tabindex="0" title="" mol_check_checked="true" aria-checked="true"><mol_view id="$hyoo_scout.Root(0).Filter_tag_title({'aspect':'Реквизит','tag':'Бумага'})" hyoo_scout_filter_tag_title="" mol_view="" style="min-height: 0px; min-width: 0px;" hyoo_scout_tag_id="Бумага">Бумага</mol_view></mol_check><mol_check id="$hyoo_scout.Root(0).Filter_tag({'aspect':'Реквизит','tag':'Карандаши'})" hyoo_scout_filter_tag="" mol_check="" mol_button_minor="" mol_button_typed="" mol_button="" mol_view="" style="min-height: 40px; min-width: 40px;" role="checkbox" tabindex="0" title="" mol_check_checked="true" aria-checked="true"><mol_view id="$hyoo_scout.Root(0).Filter_tag_title({'aspect':'Реквизит','tag':'Карандаши'})" hyoo_scout_filter_tag_title="" mol_view="" style="min-height: 0px; min-width: 0px;" hyoo_scout_tag_id="Карандаши">Карандаши</mol_view></mol_check><mol_check id="$hyoo_scout.Root(0).Filter_tag({'aspect':'Реквизит','tag':'Мешочек'})" hyoo_scout_filter_tag="" mol_check="" mol_button_minor="" mol_button_typed="" mol_button="" mol_view="" style="min-height: 40px; min-width: 40px;" role="checkbox" tabindex="0" title="" mol_check_checked="true" aria-checked="true"><mol_view id="$hyoo_scout.Root(0).Filter_tag_title({'aspect':'Реквизит','tag':'Мешочек'})" hyoo_scout_filter_tag_title="" mol_view="" style="min-height: 0px; min-width: 0px;" hyoo_scout_tag_id="Мешочек">Мешочек</mol_view></mol_check><mol_check id="$hyoo_scout.Root(0).Filter_tag({'aspect':'Реквизит','tag':'Нет'})" hyoo_scout_filter_tag="" mol_check="" mol_button_minor="" mol_button_typed="" mol_button="" mol_view="" style="min-height: 40px; min-width: 40px;" role="checkbox" tabindex="0" title="" mol_check_checked="true" aria-checked="true"><mol_view id="$hyoo_scout.Root(0).Filter_tag_title({'aspect':'Реквизит','tag':'Нет'})" hyoo_scout_filter_tag_title="" mol_view="" style="min-height: 0px; min-width: 0px;" hyoo_scout_tag_id="Нет">Нет</mol_view></mol_check><mol_check id="$hyoo_scout.Root(0).Filter_tag({'aspect':'Реквизит','tag':'Особый'})" hyoo_scout_filter_tag="" mol_check="" mol_button_minor="" mol_button_typed="" mol_button="" mol_view="" style="min-height: 40px; min-width: 40px;" role="checkbox" tabindex="0" title="" mol_check_checked="true" aria-checked="true"><mol_view id="$hyoo_scout.Root(0).Filter_tag_title({'aspect':'Реквизит','tag':'Особый'})" hyoo_scout_filter_tag_title="" mol_view="" style="min-height: 0px; min-width: 0px;" hyoo_scout_tag_id="Особый">Особый</mol_view></mol_check><mol_check id="$hyoo_scout.Root(0).Filter_tag({'aspect':'Реквизит','tag':'Платочек'})" hyoo_scout_filter_tag="" mol_check="" mol_button_minor="" mol_button_typed="" mol_button="" mol_view="" style="min-height: 40px; min-width: 40px;" role="checkbox" tabindex="0" title="" mol_check_checked="true" aria-checked="true"><mol_view id="$hyoo_scout.Root(0).Filter_tag_title({'aspect':'Реквизит','tag':'Платочек'})" hyoo_scout_filter_tag_title="" mol_view="" style="min-height: 0px; min-width: 0px;" hyoo_scout_tag_id="Платочек">Платочек</mol_view></mol_check><mol_check id="$hyoo_scout.Root(0).Filter_tag({'aspect':'Реквизит','tag':'Плед'})" hyoo_scout_filter_tag="" mol_check="" mol_button_minor="" mol_button_typed="" mol_button="" mol_view="" style="min-height: 40px; min-width: 40px;" role="checkbox" tabindex="0" title="" mol_check_checked="true" aria-checked="true"><mol_view id="$hyoo_scout.Root(0).Filter_tag_title({'aspect':'Реквизит','tag':'Плед'})" hyoo_scout_filter_tag_title="" mol_view="" style="min-height: 0px; min-width: 0px;" hyoo_scout_tag_id="Плед">Плед</mol_view></mol_check><mol_check id="$hyoo_scout.Root(0).Filter_tag({'aspect':'Реквизит','tag':'Ручки'})" hyoo_scout_filter_tag="" mol_check="" mol_button_minor="" mol_button_typed="" mol_button="" mol_view="" style="min-height: 40px; min-width: 40px;" role="checkbox" tabindex="0" title="" mol_check_checked="true" aria-checked="true"><mol_view id="$hyoo_scout.Root(0).Filter_tag_title({'aspect':'Реквизит','tag':'Ручки'})" hyoo_scout_filter_tag_title="" mol_view="" style="min-height: 0px; min-width: 0px;" hyoo_scout_tag_id="Ручки">Ручки</mol_view></mol_check><mol_check id="$hyoo_scout.Root(0).Filter_tag({'aspect':'Реквизит','tag':'Скотч'})" hyoo_scout_filter_tag="" mol_check="" mol_button_minor="" mol_button_typed="" mol_button="" mol_view="" style="min-height: 40px; min-width: 40px;" role="checkbox" tabindex="0" title="" mol_check_checked="true" aria-checked="true"><mol_view id="$hyoo_scout.Root(0).Filter_tag_title({'aspect':'Реквизит','tag':'Скотч'})" hyoo_scout_filter_tag_title="" mol_view="" style="min-height: 0px; min-width: 0px;" hyoo_scout_tag_id="Скотч">Скотч</mol_view></mol_check><mol_check id="$hyoo_scout.Root(0).Filter_tag({'aspect':'Реквизит','tag':'Соломинки'})" hyoo_scout_filter_tag="" mol_check="" mol_button_minor="" mol_button_typed="" mol_button="" mol_view="" style="min-height: 40px; min-width: 40px;" role="checkbox" tabindex="0" title="" mol_check_checked="true" aria-checked="true"><mol_view id="$hyoo_scout.Root(0).Filter_tag_title({'aspect':'Реквизит','tag':'Соломинки'})" hyoo_scout_filter_tag_title="" mol_view="" style="min-height: 0px; min-width: 0px;" hyoo_scout_tag_id="Соломинки">Соломинки</mol_view></mol_check><mol_check id="$hyoo_scout.Root(0).Filter_tag({'aspect':'Реквизит','tag':'Стаканчики'})" hyoo_scout_filter_tag="" mol_check="" mol_button_minor="" mol_button_typed="" mol_button="" mol_view="" style="min-height: 40px; min-width: 40px;" role="checkbox" tabindex="0" title="" mol_check_checked="true" aria-checked="true"><mol_view id="$hyoo_scout.Root(0).Filter_tag_title({'aspect':'Реквизит','tag':'Стаканчики'})" hyoo_scout_filter_tag_title="" mol_view="" style="min-height: 0px; min-width: 0px;" hyoo_scout_tag_id="Стаканчики">Стаканчики</mol_view></mol_check><mol_check id="$hyoo_scout.Root(0).Filter_tag({'aspect':'Реквизит','tag':'Стикеры'})" hyoo_scout_filter_tag="" mol_check="" mol_button_minor="" mol_button_typed="" mol_button="" mol_view="" style="min-height: 40px; min-width: 40px;" role="checkbox" tabindex="0" title="" mol_check_checked="true" aria-checked="true"><mol_view id="$hyoo_scout.Root(0).Filter_tag_title({'aspect':'Реквизит','tag':'Стикеры'})" hyoo_scout_filter_tag_title="" mol_view="" style="min-height: 0px; min-width: 0px;" hyoo_scout_tag_id="Стикеры">Стикеры</mol_view></mol_check><mol_check id="$hyoo_scout.Root(0).Filter_tag({'aspect':'Реквизит','tag':'Стол'})" hyoo_scout_filter_tag="" mol_check="" mol_button_minor="" mol_button_typed="" mol_button="" mol_view="" style="min-height: 40px; min-width: 40px;" role="checkbox" tabindex="0" title="" mol_check_checked="true" aria-checked="true"><mol_view id="$hyoo_scout.Root(0).Filter_tag_title({'aspect':'Реквизит','tag':'Стол'})" hyoo_scout_filter_tag_title="" mol_view="" style="min-height: 0px; min-width: 0px;" hyoo_scout_tag_id="Стол">Стол</mol_view></mol_check><mol_check id="$hyoo_scout.Root(0).Filter_tag({'aspect':'Реквизит','tag':'Удобная обувь'})" hyoo_scout_filter_tag="" mol_check="" mol_button_minor="" mol_button_typed="" mol_button="" mol_view="" style="min-height: 40px; min-width: 40px;" role="checkbox" tabindex="0" title="" mol_check_checked="true" aria-checked="true"><mol_view id="$hyoo_scout.Root(0).Filter_tag_title({'aspect':'Реквизит','tag':'Удобная обувь'})" hyoo_scout_filter_tag_title="" mol_view="" style="min-height: 0px; min-width: 0px;" hyoo_scout_tag_id="Удобная обувь">Удобная обувь</mol_view></mol_check><mol_check id="$hyoo_scout.Root(0).Filter_tag({'aspect':'Реквизит','tag':'Яйца'})" hyoo_scout_filter_tag="" mol_check="" mol_button_minor="" mol_button_typed="" mol_button="" mol_view="" style="min-height: 40px; min-width: 40px;" role="checkbox" tabindex="0" title="" mol_check_checked="true" aria-checked="true"><mol_view id="$hyoo_scout.Root(0).Filter_tag_title({'aspect':'Реквизит','tag':'Яйца'})" hyoo_scout_filter_tag_title="" mol_view="" style="min-height: 0px; min-width: 0px;" hyoo_scout_tag_id="Яйца">Яйца</mol_view></mol_check></mol_row></mol_list><mol_list id="$hyoo_scout.Root(0).Filter_aspect('Подготовка')" hyoo_scout_filter_aspect="" mol_list="" mol_view="" style="min-height: 40px; min-width: 1px;"><mol_view id="$hyoo_scout.Root(0).Filter_aspect_title('Подготовка')" hyoo_scout_filter_aspect_title="" mol_view="" style="min-height: 0px; min-width: 0px;">Подготовка</mol_view><mol_row id="$hyoo_scout.Root(0).Filter_aspect_tags('Подготовка')" hyoo_scout_filter_aspect_tags="" mol_row="" mol_view="" style="min-height: 40px; min-width: 40px;"><mol_check id="$hyoo_scout.Root(0).Filter_tag({'aspect':'Подготовка','tag':'5 минут'})" hyoo_scout_filter_tag="" mol_check="" mol_button_minor="" mol_button_typed="" mol_button="" mol_view="" style="min-height: 40px; min-width: 40px;" role="checkbox" tabindex="0" title="" mol_check_checked="true" aria-checked="true"><mol_view id="$hyoo_scout.Root(0).Filter_tag_title({'aspect':'Подготовка','tag':'5 минут'})" hyoo_scout_filter_tag_title="" mol_view="" style="min-height: 0px; min-width: 0px;" hyoo_scout_tag_id="5 минут">5 минут</mol_view></mol_check><mol_check id="$hyoo_scout.Root(0).Filter_tag({'aspect':'Подготовка','tag':'10 минут'})" hyoo_scout_filter_tag="" mol_check="" mol_button_minor="" mol_button_typed="" mol_button="" mol_view="" style="min-height: 40px; min-width: 40px;" role="checkbox" tabindex="0" title="" mol_check_checked="true" aria-checked="true"><mol_view id="$hyoo_scout.Root(0).Filter_tag_title({'aspect':'Подготовка','tag':'10 минут'})" hyoo_scout_filter_tag_title="" mol_view="" style="min-height: 0px; min-width: 0px;" hyoo_scout_tag_id="10 минут">10 минут</mol_view></mol_check><mol_check id="$hyoo_scout.Root(0).Filter_tag({'aspect':'Подготовка','tag':'20 минут'})" hyoo_scout_filter_tag="" mol_check="" mol_button_minor="" mol_button_typed="" mol_button="" mol_view="" style="min-height: 40px; min-width: 40px;" role="checkbox" tabindex="0" title="" mol_check_checked="true" aria-checked="true"><mol_view id="$hyoo_scout.Root(0).Filter_tag_title({'aspect':'Подготовка','tag':'20 минут'})" hyoo_scout_filter_tag_title="" mol_view="" style="min-height: 0px; min-width: 0px;" hyoo_scout_tag_id="20 минут">20 минут</mol_view></mol_check><mol_check id="$hyoo_scout.Root(0).Filter_tag({'aspect':'Подготовка','tag':'Нет'})" hyoo_scout_filter_tag="" mol_check="" mol_button_minor="" mol_button_typed="" mol_button="" mol_view="" style="min-height: 40px; min-width: 40px;" role="checkbox" tabindex="0" title="" mol_check_checked="true" aria-checked="true"><mol_view id="$hyoo_scout.Root(0).Filter_tag_title({'aspect':'Подготовка','tag':'Нет'})" hyoo_scout_filter_tag_title="" mol_view="" style="min-height: 0px; min-width: 0px;" hyoo_scout_tag_id="Нет">Нет</mol_view></mol_check></mol_row></mol_list><mol_list id="$hyoo_scout.Root(0).Filter_aspect('Цель')" hyoo_scout_filter_aspect="" mol_list="" mol_view="" style="min-height: 40px; min-width: 1px;"><mol_view id="$hyoo_scout.Root(0).Filter_aspect_title('Цель')" hyoo_scout_filter_aspect_title="" mol_view="" style="min-height: 0px; min-width: 0px;">Цель</mol_view><mol_row id="$hyoo_scout.Root(0).Filter_aspect_tags('Цель')" hyoo_scout_filter_aspect_tags="" mol_row="" mol_view="" style="min-height: 40px; min-width: 40px;"><mol_check id="$hyoo_scout.Root(0).Filter_tag({'aspect':'Цель','tag':'Внимание'})" hyoo_scout_filter_tag="" mol_check="" mol_button_minor="" mol_button_typed="" mol_button="" mol_view="" style="min-height: 40px; min-width: 40px;" role="checkbox" tabindex="0" title="" mol_check_checked="true" aria-checked="true"><mol_view id="$hyoo_scout.Root(0).Filter_tag_title({'aspect':'Цель','tag':'Внимание'})" hyoo_scout_filter_tag_title="" mol_view="" style="min-height: 0px; min-width: 0px;" hyoo_scout_tag_id="Внимание">Внимание</mol_view></mol_check><mol_check id="$hyoo_scout.Root(0).Filter_tag({'aspect':'Цель','tag':'Группировка'})" hyoo_scout_filter_tag="" mol_check="" mol_button_minor="" mol_button_typed="" mol_button="" mol_view="" style="min-height: 40px; min-width: 40px;" role="checkbox" tabindex="0" title="" mol_check_checked="true" aria-checked="true"><mol_view id="$hyoo_scout.Root(0).Filter_tag_title({'aspect':'Цель','tag':'Группировка'})" hyoo_scout_filter_tag_title="" mol_view="" style="min-height: 0px; min-width: 0px;" hyoo_scout_tag_id="Группировка">Группировка</mol_view></mol_check><mol_check id="$hyoo_scout.Root(0).Filter_tag({'aspect':'Цель','tag':'Доверие'})" hyoo_scout_filter_tag="" mol_check="" mol_button_minor="" mol_button_typed="" mol_button="" mol_view="" style="min-height: 40px; min-width: 40px;" role="checkbox" tabindex="0" title="" mol_check_checked="true" aria-checked="true"><mol_view id="$hyoo_scout.Root(0).Filter_tag_title({'aspect':'Цель','tag':'Доверие'})" hyoo_scout_filter_tag_title="" mol_view="" style="min-height: 0px; min-width: 0px;" hyoo_scout_tag_id="Доверие">Доверие</mol_view></mol_check><mol_check id="$hyoo_scout.Root(0).Filter_tag({'aspect':'Цель','tag':'Знакомство'})" hyoo_scout_filter_tag="" mol_check="" mol_button_minor="" mol_button_typed="" mol_button="" mol_view="" style="min-height: 40px; min-width: 40px;" role="checkbox" tabindex="0" title="" mol_check_checked="true" aria-checked="true"><mol_view id="$hyoo_scout.Root(0).Filter_tag_title({'aspect':'Цель','tag':'Знакомство'})" hyoo_scout_filter_tag_title="" mol_view="" style="min-height: 0px; min-width: 0px;" hyoo_scout_tag_id="Знакомство">Знакомство</mol_view></mol_check><mol_check id="$hyoo_scout.Root(0).Filter_tag({'aspect':'Цель','tag':'Лидерство'})" hyoo_scout_filter_tag="" mol_check="" mol_button_minor="" mol_button_typed="" mol_button="" mol_view="" style="min-height: 40px; min-width: 40px;" role="checkbox" tabindex="0" title="" mol_check_checked="true" aria-checked="true"><mol_view id="$hyoo_scout.Root(0).Filter_tag_title({'aspect':'Цель','tag':'Лидерство'})" hyoo_scout_filter_tag_title="" mol_view="" style="min-height: 0px; min-width: 0px;" hyoo_scout_tag_id="Лидерство">Лидерство</mol_view></mol_check><mol_check id="$hyoo_scout.Root(0).Filter_tag({'aspect':'Цель','tag':'Мышление'})" hyoo_scout_filter_tag="" mol_check="" mol_button_minor="" mol_button_typed="" mol_button="" mol_view="" style="min-height: 40px; min-width: 40px;" role="checkbox" tabindex="0" title="" mol_check_checked="true" aria-checked="true"><mol_view id="$hyoo_scout.Root(0).Filter_tag_title({'aspect':'Цель','tag':'Мышление'})" hyoo_scout_filter_tag_title="" mol_view="" style="min-height: 0px; min-width: 0px;" hyoo_scout_tag_id="Мышление">Мышление</mol_view></mol_check><mol_check id="$hyoo_scout.Root(0).Filter_tag({'aspect':'Цель','tag':'Обратная связь'})" hyoo_scout_filter_tag="" mol_check="" mol_button_minor="" mol_button_typed="" mol_button="" mol_view="" style="min-height: 40px; min-width: 40px;" role="checkbox" tabindex="0" title="" mol_check_checked="true" aria-checked="true"><mol_view id="$hyoo_scout.Root(0).Filter_tag_title({'aspect':'Цель','tag':'Обратная связь'})" hyoo_scout_filter_tag_title="" mol_view="" style="min-height: 0px; min-width: 0px;" hyoo_scout_tag_id="Обратная связь">Обратная связь</mol_view></mol_check><mol_check id="$hyoo_scout.Root(0).Filter_tag({'aspect':'Цель','tag':'Обсуждение'})" hyoo_scout_filter_tag="" mol_check="" mol_button_minor="" mol_button_typed="" mol_button="" mol_view="" style="min-height: 40px; min-width: 40px;" role="checkbox" tabindex="0" title="" mol_check_checked="true" aria-checked="true"><mol_view id="$hyoo_scout.Root(0).Filter_tag_title({'aspect':'Цель','tag':'Обсуждение'})" hyoo_scout_filter_tag_title="" mol_view="" style="min-height: 0px; min-width: 0px;" hyoo_scout_tag_id="Обсуждение">Обсуждение</mol_view></mol_check><mol_check id="$hyoo_scout.Root(0).Filter_tag({'aspect':'Цель','tag':'Развлечение'})" hyoo_scout_filter_tag="" mol_check="" mol_button_minor="" mol_button_typed="" mol_button="" mol_view="" style="min-height: 40px; min-width: 40px;" role="checkbox" tabindex="0" title="" mol_check_checked="true" aria-checked="true"><mol_view id="$hyoo_scout.Root(0).Filter_tag_title({'aspect':'Цель','tag':'Развлечение'})" hyoo_scout_filter_tag_title="" mol_view="" style="min-height: 0px; min-width: 0px;" hyoo_scout_tag_id="Развлечение">Развлечение</mol_view></mol_check><mol_check id="$hyoo_scout.Root(0).Filter_tag({'aspect':'Цель','tag':'Разминка'})" hyoo_scout_filter_tag="" mol_check="" mol_button_minor="" mol_button_typed="" mol_button="" mol_view="" style="min-height: 40px; min-width: 40px;" role="checkbox" tabindex="0" title="" mol_check_checked="true" aria-checked="true"><mol_view id="$hyoo_scout.Root(0).Filter_tag_title({'aspect':'Цель','tag':'Разминка'})" hyoo_scout_filter_tag_title="" mol_view="" style="min-height: 0px; min-width: 0px;" hyoo_scout_tag_id="Разминка">Разминка</mol_view></mol_check><mol_check id="$hyoo_scout.Root(0).Filter_tag({'aspect':'Цель','tag':'Раскрепощение'})" hyoo_scout_filter_tag="" mol_check="" mol_button_minor="" mol_button_typed="" mol_button="" mol_view="" style="min-height: 40px; min-width: 40px;" role="checkbox" tabindex="0" title="" mol_check_checked="true" aria-checked="true"><mol_view id="$hyoo_scout.Root(0).Filter_tag_title({'aspect':'Цель','tag':'Раскрепощение'})" hyoo_scout_filter_tag_title="" mol_view="" style="min-height: 0px; min-width: 0px;" hyoo_scout_tag_id="Раскрепощение">Раскрепощение</mol_view></mol_check><mol_check id="$hyoo_scout.Root(0).Filter_tag({'aspect':'Цель','tag':'Сплочение'})" hyoo_scout_filter_tag="" mol_check="" mol_button_minor="" mol_button_typed="" mol_button="" mol_view="" style="min-height: 40px; min-width: 40px;" role="checkbox" tabindex="0" title="" mol_check_checked="true" aria-checked="true"><mol_view id="$hyoo_scout.Root(0).Filter_tag_title({'aspect':'Цель','tag':'Сплочение'})" hyoo_scout_filter_tag_title="" mol_view="" style="min-height: 0px; min-width: 0px;" hyoo_scout_tag_id="Сплочение">Сплочение</mol_view></mol_check><mol_check id="$hyoo_scout.Root(0).Filter_tag({'aspect':'Цель','tag':'Творчество'})" hyoo_scout_filter_tag="" mol_check="" mol_button_minor="" mol_button_typed="" mol_button="" mol_view="" style="min-height: 40px; min-width: 40px;" role="checkbox" tabindex="0" title="" mol_check_checked="true" aria-checked="true"><mol_view id="$hyoo_scout.Root(0).Filter_tag_title({'aspect':'Цель','tag':'Творчество'})" hyoo_scout_filter_tag_title="" mol_view="" style="min-height: 0px; min-width: 0px;" hyoo_scout_tag_id="Творчество">Творчество</mol_view></mol_check><mol_check id="$hyoo_scout.Root(0).Filter_tag({'aspect':'Цель','tag':'Усвоение'})" hyoo_scout_filter_tag="" mol_check="" mol_button_minor="" mol_button_typed="" mol_button="" mol_view="" style="min-height: 40px; min-width: 40px;" role="checkbox" tabindex="0" title="" mol_check_checked="true" aria-checked="true"><mol_view id="$hyoo_scout.Root(0).Filter_tag_title({'aspect':'Цель','tag':'Усвоение'})" hyoo_scout_filter_tag_title="" mol_view="" style="min-height: 0px; min-width: 0px;" hyoo_scout_tag_id="Усвоение">Усвоение</mol_view></mol_check></mol_row></mol_list><mol_list id="$hyoo_scout.Root(0).Filter_aspect('Место')" hyoo_scout_filter_aspect="" mol_list="" mol_view="" style="min-height: 40px; min-width: 1px;"><mol_view id="$hyoo_scout.Root(0).Filter_aspect_title('Место')" hyoo_scout_filter_aspect_title="" mol_view="" style="min-height: 0px; min-width: 0px;">Место</mol_view><mol_row id="$hyoo_scout.Root(0).Filter_aspect_tags('Место')" hyoo_scout_filter_aspect_tags="" mol_row="" mol_view="" style="min-height: 40px; min-width: 40px;"><mol_check id="$hyoo_scout.Root(0).Filter_tag({'aspect':'Место','tag':'Зал'})" hyoo_scout_filter_tag="" mol_check="" mol_button_minor="" mol_button_typed="" mol_button="" mol_view="" style="min-height: 40px; min-width: 40px;" role="checkbox" tabindex="0" title="" mol_check_checked="true" aria-checked="true"><mol_view id="$hyoo_scout.Root(0).Filter_tag_title({'aspect':'Место','tag':'Зал'})" hyoo_scout_filter_tag_title="" mol_view="" style="min-height: 0px; min-width: 0px;" hyoo_scout_tag_id="Зал">Зал</mol_view></mol_check><mol_check id="$hyoo_scout.Root(0).Filter_tag({'aspect':'Место','tag':'Любое'})" hyoo_scout_filter_tag="" mol_check="" mol_button_minor="" mol_button_typed="" mol_button="" mol_view="" style="min-height: 40px; min-width: 40px;" role="checkbox" tabindex="0" title="" mol_check_checked="true" aria-checked="true"><mol_view id="$hyoo_scout.Root(0).Filter_tag_title({'aspect':'Место','tag':'Любое'})" hyoo_scout_filter_tag_title="" mol_view="" style="min-height: 0px; min-width: 0px;" hyoo_scout_tag_id="Любое">Любое</mol_view></mol_check><mol_check id="$hyoo_scout.Root(0).Filter_tag({'aspect':'Место','tag':'Просторное'})" hyoo_scout_filter_tag="" mol_check="" mol_button_minor="" mol_button_typed="" mol_button="" mol_view="" style="min-height: 40px; min-width: 40px;" role="checkbox" tabindex="0" title="" mol_check_checked="true" aria-checked="true"><mol_view id="$hyoo_scout.Root(0).Filter_tag_title({'aspect':'Место','tag':'Просторное'})" hyoo_scout_filter_tag_title="" mol_view="" style="min-height: 0px; min-width: 0px;" hyoo_scout_tag_id="Просторное">Просторное</mol_view></mol_check><mol_check id="$hyoo_scout.Root(0).Filter_tag({'aspect':'Место','tag':'Тихое'})" hyoo_scout_filter_tag="" mol_check="" mol_button_minor="" mol_button_typed="" mol_button="" mol_view="" style="min-height: 40px; min-width: 40px;" role="checkbox" tabindex="0" title="" mol_check_checked="true" aria-checked="true"><mol_view id="$hyoo_scout.Root(0).Filter_tag_title({'aspect':'Место','tag':'Тихое'})" hyoo_scout_filter_tag_title="" mol_view="" style="min-height: 0px; min-width: 0px;" hyoo_scout_tag_id="Тихое">Тихое</mol_view></mol_check></mol_row></mol_list><mol_list id="$hyoo_scout.Root(0).Filter_aspect('Длительность')" hyoo_scout_filter_aspect="" mol_list="" mol_view="" style="min-height: 40px; min-width: 1px;"><mol_view id="$hyoo_scout.Root(0).Filter_aspect_title('Длительность')" hyoo_scout_filter_aspect_title="" mol_view="" style="min-height: 0px; min-width: 0px;">Длительность</mol_view><mol_row id="$hyoo_scout.Root(0).Filter_aspect_tags('Длительность')" hyoo_scout_filter_aspect_tags="" mol_row="" mol_view="" style="min-height: 40px; min-width: 40px;"><mol_check id="$hyoo_scout.Root(0).Filter_tag({'aspect':'Длительность','tag':'1 минута'})" hyoo_scout_filter_tag="" mol_check="" mol_button_minor="" mol_button_typed="" mol_button="" mol_view="" style="min-height: 40px; min-width: 40px;" role="checkbox" tabindex="0" title="" mol_check_checked="true" aria-checked="true"><mol_view id="$hyoo_scout.Root(0).Filter_tag_title({'aspect':'Длительность','tag':'1 минута'})" hyoo_scout_filter_tag_title="" mol_view="" style="min-height: 0px; min-width: 0px;" hyoo_scout_tag_id="1 минута">1 минута</mol_view></mol_check><mol_check id="$hyoo_scout.Root(0).Filter_tag({'aspect':'Длительность','tag':'5 минут'})" hyoo_scout_filter_tag="" mol_check="" mol_button_minor="" mol_button_typed="" mol_button="" mol_view="" style="min-height: 40px; min-width: 40px;" role="checkbox" tabindex="0" title="" mol_check_checked="true" aria-checked="true"><mol_view id="$hyoo_scout.Root(0).Filter_tag_title({'aspect':'Длительность','tag':'5 минут'})" hyoo_scout_filter_tag_title="" mol_view="" style="min-height: 0px; min-width: 0px;" hyoo_scout_tag_id="5 минут">5 минут</mol_view></mol_check><mol_check id="$hyoo_scout.Root(0).Filter_tag({'aspect':'Длительность','tag':'10 минут'})" hyoo_scout_filter_tag="" mol_check="" mol_button_minor="" mol_button_typed="" mol_button="" mol_view="" style="min-height: 40px; min-width: 40px;" role="checkbox" tabindex="0" title="" mol_check_checked="true" aria-checked="true"><mol_view id="$hyoo_scout.Root(0).Filter_tag_title({'aspect':'Длительность','tag':'10 минут'})" hyoo_scout_filter_tag_title="" mol_view="" style="min-height: 0px; min-width: 0px;" hyoo_scout_tag_id="10 минут">10 минут</mol_view></mol_check><mol_check id="$hyoo_scout.Root(0).Filter_tag({'aspect':'Длительность','tag':'20 минут'})" hyoo_scout_filter_tag="" mol_check="" mol_button_minor="" mol_button_typed="" mol_button="" mol_view="" style="min-height: 40px; min-width: 40px;" role="checkbox" tabindex="0" title="" mol_check_checked="true" aria-checked="true"><mol_view id="$hyoo_scout.Root(0).Filter_tag_title({'aspect':'Длительность','tag':'20 минут'})" hyoo_scout_filter_tag_title="" mol_view="" style="min-height: 0px; min-width: 0px;" hyoo_scout_tag_id="20 минут">20 минут</mol_view></mol_check><mol_check id="$hyoo_scout.Root(0).Filter_tag({'aspect':'Длительность','tag':'40 минут'})" hyoo_scout_filter_tag="" mol_check="" mol_button_minor="" mol_button_typed="" mol_button="" mol_view="" style="min-height: 40px; min-width: 40px;" role="checkbox" tabindex="0" title="" mol_check_checked="true" aria-checked="true"><mol_view id="$hyoo_scout.Root(0).Filter_tag_title({'aspect':'Длительность','tag':'40 минут'})" hyoo_scout_filter_tag_title="" mol_view="" style="min-height: 0px; min-width: 0px;" hyoo_scout_tag_id="40 минут">40 минут</mol_view></mol_check></mol_row></mol_list></mol_list><a id="$hyoo_scout.Root(0).Feedback()" hyoo_scout_feedback="" mol_link="" mol_view="" style="min-height: 24px; min-width: 0px;" href="https://vk.com/scout_hyoo_ru" title="" target="_blank" rel="">Ошибки? Предложения?</a></mol_view></mol_scroll><footer id="$hyoo_scout.Root(0).Filter().Foot()" mol_page_foot="" hyoo_scout_filter_foot="" mol_view="" style="min-height: 0px; min-width: 0px;"></footer></article><article id="$hyoo_scout.Root(0).Gists()" hyoo_scout_gists="" mol_page="" mol_view="" style="min-height: 64px; min-width: 40px;" tabindex="-1"><header id="$hyoo_scout.Root(0).Gists().Head()" mol_page_head="" hyoo_scout_gists_head="" mol_view="" style="min-height: 64px; min-width: 40px;"><h1 id="$hyoo_scout.Root(0).Gists().Title()" mol_page_title="" hyoo_scout_gists_title="" mol_view="" style="min-height: 0px; min-width: 0px;">Игротека вожатого (49 шт)</h1><mol_view id="$hyoo_scout.Root(0).Gists().Tools()" mol_page_tools="" hyoo_scout_gists_tools="" mol_view="" style="min-height: 40px; min-width: 40px;"><a id="$hyoo_scout.Root(0).Suggest_link()" hyoo_scout_suggest_link="" mol_link="" mol_view="" style="min-height: 24px; min-width: 16px;" href="https://localhost:9080/#!suggest" title="" target="_self" rel=""><svg id="$hyoo_scout.Root(0).Suggest_icon()" hyoo_scout_suggest_icon="" mol_icon_plus="" mol_icon="" mol_svg_root="" mol_svg="" mol_view="" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid"><path id="$hyoo_scout.Root(0).Suggest_icon().Path()" mol_icon_plus_path="" mol_icon_path="" hyoo_scout_suggest_icon_path="" mol_svg_path="" mol_svg="" mol_view="" d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z"></path></svg></a><mol_check_icon id="$hyoo_scout.Root(0).Gists_favorite()" hyoo_scout_gists_favorite="" mol_check_icon="" mol_check="" mol_button_minor="" mol_button_typed="" mol_button="" mol_view="" style="min-height: 40px; min-width: 40px;" role="checkbox" tabindex="0" title="Только избранное" aria-checked="false"><svg id="$hyoo_scout.Root(0).Gists_favorite_icon()" hyoo_scout_gists_favorite_icon="" mol_icon_favorite="" mol_icon="" mol_svg_root="" mol_svg="" mol_view="" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid"><path id="$hyoo_scout.Root(0).Gists_favorite_icon().Path()" mol_icon_favorite_path="" mol_icon_path="" hyoo_scout_gists_favorite_icon_path="" mol_svg_path="" mol_svg="" mol_view="" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg></mol_check_icon></mol_view></header><mol_scroll id="$hyoo_scout.Root(0).Gists().Body()" mol_page_body="" hyoo_scout_gists_body="" mol_scroll="" mol_view="" style="min-height: 0px; min-width: 0px;" tabindex="-1"><mol_view id="$hyoo_scout.Root(0).Gists().Body_content()" mol_page_body_content="" hyoo_scout_gists_body_content="" mol_view="" style="min-height: 1176px; min-width: 1px;"><mol_search id="$hyoo_scout.Root(0).Gists_search()" hyoo_scout_gists_search="" mol_search="" mol_pop="" mol_view="" style="min-height: 0px; min-width: 0px;" mol_search_hotkey="" hyoo_scout_gists_search_hotkey="" mol_hotkey="" mol_plugin="" mol_search_nav="" hyoo_scout_gists_search_nav="" mol_nav=""><mol_view id="$hyoo_scout.Root(0).Gists_search().Anchor()" mol_search_anchor="" mol_pop_anchor="" hyoo_scout_gists_search_anchor="" mol_view="" style="min-height: 40px; min-width: 0px;"><input id="$hyoo_scout.Root(0).Gists_search().Query()" mol_search_query="" hyoo_scout_gists_search_query="" mol_string="" mol_view="" style="min-height: 0px; min-width: 0px;" maxlength="Infinity" type="text" mol_string_submit="" mol_search_query_submit="" hyoo_scout_gists_search_query_submit="" mol_hotkey="" mol_plugin="" mol_view_error="TypeError"></mol_view></mol_search><mol_list id="$hyoo_scout.Root(0).Gists_list()" hyoo_scout_gists_list="" mol_list="" mol_view="" style="min-height: 1176px; min-width: 1px;"><a id="$hyoo_scout.Root(0).Gist_link('Базар')" hyoo_scout_gist_link="" mol_link="" mol_view="" style="min-height: 24px; min-width: 7px;" href="https://localhost:9080/#!gist=%D0%91%D0%B0%D0%B7%D0%B0%D1%80" title="" target="_self" rel=""><mol_view id="$hyoo_scout.Root(0).Gist_link_icon('Базар')" hyoo_scout_gist_link_icon="" mol_view="" style="min-height: 0px; min-width: 0px;">🔃</mol_view><mol_dimmer id="$hyoo_scout.Root(0).Gist_link_title('Базар')" hyoo_scout_gist_link_title="" mol_dimmer="" mol_paragraph="" mol_view="" style="min-height: 24px; min-width: 7px;">Базар</mol_dimmer></a><a id="$hyoo_scout.Root(0).Gist_link('Бип')" hyoo_scout_gist_link="" mol_link="" mol_view="" style="min-height: 24px; min-width: 7px;" href="https://localhost:9080/#!gist=%D0%91%D0%B8%D0%BF" title="" target="_self" rel=""><mol_view id="$hyoo_scout.Root(0).Gist_link_icon('Бип')" hyoo_scout_gist_link_icon="" mol_view="" style="min-height: 0px; min-width: 0px;">🗺️</mol_view><mol_dimmer id="$hyoo_scout.Root(0).Gist_link_title('Бип')" hyoo_scout_gist_link_title="" mol_dimmer="" mol_paragraph="" mol_view="" style="min-height: 24px; min-width: 7px;">Бип</mol_dimmer></a><a id="$hyoo_scout.Root(0).Gist_link('Бункер')" hyoo_scout_gist_link="" mol_link="" mol_view="" style="min-height: 24px; min-width: 7px;" href="https://localhost:9080/#!gist=%D0%91%D1%83%D0%BD%D0%BA%D0%B5%D1%80" title="" target="_self" rel=""><mol_view id="$hyoo_scout.Root(0).Gist_link_icon('Бункер')" hyoo_scout_gist_link_icon="" mol_view="" style="min-height: 0px; min-width: 0px;">🚪</mol_view><mol_dimmer id="$hyoo_scout.Root(0).Gist_link_title('Бункер')" hyoo_scout_gist_link_title="" mol_dimmer="" mol_paragraph="" mol_view="" style="min-height: 24px; min-width: 7px;">Бункер</mol_dimmer></a><a id="$hyoo_scout.Root(0).Gist_link('Ветви дерева')" hyoo_scout_gist_link="" mol_link="" mol_view="" style="min-height: 24px; min-width: 7px;" href="https://localhost:9080/#!gist=%D0%92%D0%B5%D1%82%D0%B2%D0%B8%20%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%B0" title="" target="_self" rel=""><mol_view id="$hyoo_scout.Root(0).Gist_link_icon('Ветви дерева')" hyoo_scout_gist_link_icon="" mol_view="" style="min-height: 0px; min-width: 0px;">🌱</mol_view><mol_dimmer id="$hyoo_scout.Root(0).Gist_link_title('Ветви дерева')" hyoo_scout_gist_link_title="" mol_dimmer="" mol_paragraph="" mol_view="" style="min-height: 24px; min-width: 7px;">Ветви дерева</mol_dimmer></a><a id="$hyoo_scout.Root(0).Gist_link('Вжух-Бэнг-Пау')" hyoo_scout_gist_link="" mol_link="" mol_view="" style="min-height: 24px; min-width: 7px;" href="https://localhost:9080/#!gist=%D0%92%D0%B6%D1%83%D1%85-%D0%91%D1%8D%D0%BD%D0%B3-%D0%9F%D0%B0%D1%83" title="" target="_self" rel=""><mol_view id="$hyoo_scout.Root(0).Gist_link_icon('Вжух-Бэнг-Пау')" hyoo_scout_gist_link_icon="" mol_view="" style="min-height: 0px; min-width: 0px;">⭕</mol_view><mol_dimmer id="$hyoo_scout.Root(0).Gist_link_title('Вжух-Бэнг-Пау')" hyoo_scout_gist_link_title="" mol_dimmer="" mol_paragraph="" mol_view="" style="min-height: 24px; min-width: 7px;">Вжух-Бэнг-Пау</mol_dimmer></a><a id="$hyoo_scout.Root(0).Gist_link('Вокальное приветствие')" hyoo_scout_gist_link="" mol_link="" mol_view="" style="min-height: 24px; min-width: 7px;" href="https://localhost:9080/#!gist=%D0%92%D0%BE%D0%BA%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B5%20%D0%BF%D1%80%D0%B8%D0%B2%D0%B5%D1%82%D1%81%D1%82%D0%B2%D0%B8%D0%B5" title="" target="_self" rel=""><mol_view id="$hyoo_scout.Root(0).Gist_link_icon('Вокальное приветствие')" hyoo_scout_gist_link_icon="" mol_view="" style="min-height: 0px; min-width: 0px;">🎤</mol_view><mol_dimmer id="$hyoo_scout.Root(0).Gist_link_title('Вокальное приветствие')" hyoo_scout_gist_link_title="" mol_dimmer="" mol_paragraph="" mol_view="" style="min-height: 24px; min-width: 7px;">Вокальное приветствие</mol_dimmer></a><a id="$hyoo_scout.Root(0).Gist_link('Горелки')" hyoo_scout_gist_link="" mol_link="" mol_view="" style="min-height: 24px; min-width: 7px;" href="https://localhost:9080/#!gist=%D0%93%D0%BE%D1%80%D0%B5%D0%BB%D0%BA%D0%B8" title="" target="_self" rel=""><mol_view id="$hyoo_scout.Root(0).Gist_link_icon('Горелки')" hyoo_scout_gist_link_icon="" mol_view="" style="min-height: 0px; min-width: 0px;">🥓</mol_view><mol_dimmer id="$hyoo_scout.Root(0).Gist_link_title('Горелки')" hyoo_scout_gist_link_title="" mol_dimmer="" mol_paragraph="" mol_view="" style="min-height: 24px; min-width: 7px;">Горелки</mol_dimmer></a><a id="$hyoo_scout.Root(0).Gist_link('Дом, милый дом')" hyoo_scout_gist_link="" mol_link="" mol_view="" style="min-height: 24px; min-width: 7px;" href="https://localhost:9080/#!gist=%D0%94%D0%BE%D0%BC%2C%20%D0%BC%D0%B8%D0%BB%D1%8B%D0%B9%20%D0%B4%D0%BE%D0%BC" title="" target="_self" rel=""><mol_view id="$hyoo_scout.Root(0).Gist_link_icon('Дом, милый дом')" hyoo_scout_gist_link_icon="" mol_view="" style="min-height: 0px; min-width: 0px;">🏠</mol_view><mol_dimmer id="$hyoo_scout.Root(0).Gist_link_title('Дом, милый дом')" hyoo_scout_gist_link_title="" mol_dimmer="" mol_paragraph="" mol_view="" style="min-height: 24px; min-width: 7px;">Дом, милый дом</mol_dimmer></a><a id="$hyoo_scout.Root(0).Gist_link('Интернациональное приветствие')" hyoo_scout_gist_link="" mol_link="" mol_view="" style="min-height: 24px; min-width: 7px;" href="https://localhost:9080/#!gist=%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%BD%D0%B0%D1%86%D0%B8%D0%BE%D0%BD%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B5%20%D0%BF%D1%80%D0%B8%D0%B2%D0%B5%D1%82%D1%81%D1%82%D0%B2%D0%B8%D0%B5" title="" target="_self" rel=""><mol_view id="$hyoo_scout.Root(0).Gist_link_icon('Интернациональное приветствие')" hyoo_scout_gist_link_icon="" mol_view="" style="min-height: 0px; min-width: 0px;">🖐️</mol_view><mol_dimmer id="$hyoo_scout.Root(0).Gist_link_title('Интернациональное приветствие')" hyoo_scout_gist_link_title="" mol_dimmer="" mol_paragraph="" mol_view="" style="min-height: 24px; min-width: 7px;">Интернациональное приветствие</mol_dimmer></a><a id="$hyoo_scout.Root(0).Gist_link('Интернациональное прощание')" hyoo_scout_gist_link="" mol_link="" mol_view="" style="min-height: 24px; min-width: 7px;" href="https://localhost:9080/#!gist=%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%BD%D0%B0%D1%86%D0%B8%D0%BE%D0%BD%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B5%20%D0%BF%D1%80%D0%BE%D1%89%D0%B0%D0%BD%D0%B8%D0%B5" title="" target="_self" rel=""><mol_view id="$hyoo_scout.Root(0).Gist_link_icon('Интернациональное прощание')" hyoo_scout_gist_link_icon="" mol_view="" style="min-height: 0px; min-width: 0px;">🤗</mol_view><mol_dimmer id="$hyoo_scout.Root(0).Gist_link_title('Интернациональное прощание')" hyoo_scout_gist_link_title="" mol_dimmer="" mol_paragraph="" mol_view="" style="min-height: 24px; min-width: 7px;">Интернациональное прощание</mol_dimmer></a><a id="$hyoo_scout.Root(0).Gist_link('Карусель')" hyoo_scout_gist_link="" mol_link="" mol_view="" style="min-height: 24px; min-width: 7px;" href="https://localhost:9080/#!gist=%D0%9A%D0%B0%D1%80%D1%83%D1%81%D0%B5%D0%BB%D1%8C" title="" target="_self" rel=""><mol_view id="$hyoo_scout.Root(0).Gist_link_icon('Карусель')" hyoo_scout_gist_link_icon="" mol_view="" style="min-height: 0px; min-width: 0px;">🎠</mol_view><mol_dimmer id="$hyoo_scout.Root(0).Gist_link_title('Карусель')" hyoo_scout_gist_link_title="" mol_dimmer="" mol_paragraph="" mol_view="" style="min-height: 24px; min-width: 7px;">Карусель</mol_dimmer></a><a id="$hyoo_scout.Root(0).Gist_link('Киллер')" hyoo_scout_gist_link="" mol_link="" mol_view="" style="min-height: 24px; min-width: 7px;" href="https://localhost:9080/#!gist=%D0%9A%D0%B8%D0%BB%D0%BB%D0%B5%D1%80" title="" target="_self" rel=""><mol_view id="$hyoo_scout.Root(0).Gist_link_icon('Киллер')" hyoo_scout_gist_link_icon="" mol_view="" style="min-height: 0px; min-width: 0px;">🔫</mol_view><mol_dimmer id="$hyoo_scout.Root(0).Gist_link_title('Киллер')" hyoo_scout_gist_link_title="" mol_dimmer="" mol_paragraph="" mol_view="" style="min-height: 24px; min-width: 7px;">Киллер</mol_dimmer></a><a id="$hyoo_scout.Root(0).Gist_link('Ковёр-самолёт')" hyoo_scout_gist_link="" mol_link="" mol_view="" style="min-height: 24px; min-width: 7px;" href="https://localhost:9080/#!gist=%D0%9A%D0%BE%D0%B2%D1%91%D1%80-%D1%81%D0%B0%D0%BC%D0%BE%D0%BB%D1%91%D1%82" title="" target="_self" rel=""><mol_view id="$hyoo_scout.Root(0).Gist_link_icon('Ковёр-самолёт')" hyoo_scout_gist_link_icon="" mol_view="" style="min-height: 0px; min-width: 0px;">✈️</mol_view><mol_dimmer id="$hyoo_scout.Root(0).Gist_link_title('Ковёр-самолёт')" hyoo_scout_gist_link_title="" mol_dimmer="" mol_paragraph="" mol_view="" style="min-height: 24px; min-width: 7px;">Ковёр-самолёт</mol_dimmer></a><a id="$hyoo_scout.Root(0).Gist_link('Козья тропа')" hyoo_scout_gist_link="" mol_link="" mol_view="" style="min-height: 24px; min-width: 7px;" href="https://localhost:9080/#!gist=%D0%9A%D0%BE%D0%B7%D1%8C%D1%8F%20%D1%82%D1%80%D0%BE%D0%BF%D0%B0" title="" target="_self" rel=""><mol_view id="$hyoo_scout.Root(0).Gist_link_icon('Козья тропа')" hyoo_scout_gist_link_icon="" mol_view="" style="min-height: 0px; min-width: 0px;">🐐</mol_view><mol_dimmer id="$hyoo_scout.Root(0).Gist_link_title('Козья тропа')" hyoo_scout_gist_link_title="" mol_dimmer="" mol_paragraph="" mol_view="" style="min-height: 24px; min-width: 7px;">Козья тропа</mol_dimmer></a><a id="$hyoo_scout.Root(0).Gist_link('Коллективный счёт')" hyoo_scout_gist_link="" mol_link="" mol_view="" style="min-height: 24px; min-width: 7px;" href="https://localhost:9080/#!gist=%D0%9A%D0%BE%D0%BB%D0%BB%D0%B5%D0%BA%D1%82%D0%B8%D0%B2%D0%BD%D1%8B%D0%B9%20%D1%81%D1%87%D1%91%D1%82" title="" target="_self" rel=""><mol_view id="$hyoo_scout.Root(0).Gist_link_icon('Коллективный счёт')" hyoo_scout_gist_link_icon="" mol_view="" style="min-height: 0px; min-width: 0px;">🔢</mol_view><mol_dimmer id="$hyoo_scout.Root(0).Gist_link_title('Коллективный счёт')" hyoo_scout_gist_link_title="" mol_dimmer="" mol_paragraph="" mol_view="" style="min-height: 24px; min-width: 7px;">Коллективный счёт</mol_dimmer></a><a id="$hyoo_scout.Root(0).Gist_link('Круги интересов')" hyoo_scout_gist_link="" mol_link="" mol_view="" style="min-height: 24px; min-width: 7px;" href="https://localhost:9080/#!gist=%D0%9A%D1%80%D1%83%D0%B3%D0%B8%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D0%BE%D0%B2" title="" target="_self" rel=""><mol_view id="$hyoo_scout.Root(0).Gist_link_icon('Круги интересов')" hyoo_scout_gist_link_icon="" mol_view="" style="min-height: 0px; min-width: 0px;">♻️</mol_view><mol_dimmer id="$hyoo_scout.Root(0).Gist_link_title('Круги интересов')" hyoo_scout_gist_link_title="" mol_dimmer="" mol_paragraph="" mol_view="" style="min-height: 24px; min-width: 7px;">Круги интересов</mol_dimmer></a><a id="$hyoo_scout.Root(0).Gist_link('Левитация')" hyoo_scout_gist_link="" mol_link="" mol_view="" style="min-height: 24px; min-width: 7px;" href="https://localhost:9080/#!gist=%D0%9B%D0%B5%D0%B2%D0%B8%D1%82%D0%B0%D1%86%D0%B8%D1%8F" title="" target="_self" rel=""><mol_view id="$hyoo_scout.Root(0).Gist_link_icon('Левитация')" hyoo_scout_gist_link_icon="" mol_view="" style="min-height: 0px; min-width: 0px;">🛸</mol_view><mol_dimmer id="$hyoo_scout.Root(0).Gist_link_title('Левитация')" hyoo_scout_gist_link_title="" mol_dimmer="" mol_paragraph="" mol_view="" style="min-height: 24px; min-width: 7px;">Левитация</mol_dimmer></a><a id="$hyoo_scout.Root(0).Gist_link('Лягушка')" hyoo_scout_gist_link="" mol_link="" mol_view="" style="min-height: 24px; min-width: 7px;" href="https://localhost:9080/#!gist=%D0%9B%D1%8F%D0%B3%D1%83%D1%88%D0%BA%D0%B0" title="" target="_self" rel=""><mol_view id="$hyoo_scout.Root(0).Gist_link_icon('Лягушка')" hyoo_scout_gist_link_icon="" mol_view="" style="min-height: 0px; min-width: 0px;">🐸</mol_view><mol_dimmer id="$hyoo_scout.Root(0).Gist_link_title('Лягушка')" hyoo_scout_gist_link_title="" mol_dimmer="" mol_paragraph="" mol_view="" style="min-height: 24px; min-width: 7px;">Лягушка</mol_dimmer></a><a id="$hyoo_scout.Root(0).Gist_link('Минутка на лидера')" hyoo_scout_gist_link="" mol_link="" mol_view="" style="min-height: 24px; min-width: 7px;" href="https://localhost:9080/#!gist=%D0%9C%D0%B8%D0%BD%D1%83%D1%82%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%BB%D0%B8%D0%B4%D0%B5%D1%80%D0%B0" title="" target="_self" rel=""><mol_view id="$hyoo_scout.Root(0).Gist_link_icon('Минутка на лидера')" hyoo_scout_gist_link_icon="" mol_view="" style="min-height: 0px; min-width: 0px;">🙋‍</mol_view><mol_dimmer id="$hyoo_scout.Root(0).Gist_link_title('Минутка на лидера')" hyoo_scout_gist_link_title="" mol_dimmer="" mol_paragraph="" mol_view="" style="min-height: 24px; min-width: 7px;">Минутка на лидера</mol_dimmer></a><a id="$hyoo_scout.Root(0).Gist_link('Настроеметр')" hyoo_scout_gist_link="" mol_link="" mol_view="" style="min-height: 24px; min-width: 7px;" href="https://localhost:9080/#!gist=%D0%9D%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B5%D0%BC%D0%B5%D1%82%D1%80" title="" target="_self" rel=""><mol_view id="$hyoo_scout.Root(0).Gist_link_icon('Настроеметр')" hyoo_scout_gist_link_icon="" mol_view="" style="min-height: 0px; min-width: 0px;">🌡️</mol_view><mol_dimmer id="$hyoo_scout.Root(0).Gist_link_title('Настроеметр')" hyoo_scout_gist_link_title="" mol_dimmer="" mol_paragraph="" mol_view="" style="min-height: 24px; min-width: 7px;">Настроеметр</mol_dimmer></a><a id="$hyoo_scout.Root(0).Gist_link('Парадокс Лжеца')" hyoo_scout_gist_link="" mol_link="" mol_view="" style="min-height: 24px; min-width: 7px;" href="https://localhost:9080/#!gist=%D0%9F%D0%B0%D1%80%D0%B0%D0%B4%D0%BE%D0%BA%D1%81%20%D0%9B%D0%B6%D0%B5%D1%86%D0%B0" title="" target="_self" rel=""><mol_view id="$hyoo_scout.Root(0).Gist_link_icon('Парадокс Лжеца')" hyoo_scout_gist_link_icon="" mol_view="" style="min-height: 0px; min-width: 0px;">🤥</mol_view><mol_dimmer id="$hyoo_scout.Root(0).Gist_link_title('Парадокс Лжеца')" hyoo_scout_gist_link_title="" mol_dimmer="" mol_paragraph="" mol_view="" style="min-height: 24px; min-width: 7px;">Парадокс Лжеца</mol_dimmer></a><a id="$hyoo_scout.Root(0).Gist_link('Письмо другу')" hyoo_scout_gist_link="" mol_link="" mol_view="" style="min-height: 24px; min-width: 7px;" href="https://localhost:9080/#!gist=%D0%9F%D0%B8%D1%81%D1%8C%D0%BC%D0%BE%20%D0%B4%D1%80%D1%83%D0%B3%D1%83" title="" target="_self" rel=""><mol_view id="$hyoo_scout.Root(0).Gist_link_icon('Письмо другу')" hyoo_scout_gist_link_icon="" mol_view="" style="min-height: 0px; min-width: 0px;">💌</mol_view><mol_dimmer id="$hyoo_scout.Root(0).Gist_link_title('Письмо другу')" hyoo_scout_gist_link_title="" mol_dimmer="" mol_paragraph="" mol_view="" style="min-height: 24px; min-width: 7px;">Письмо другу</mol_dimmer></a><a id="$hyoo_scout.Root(0).Gist_link('Платочек')" hyoo_scout_gist_link="" mol_link="" mol_view="" style="min-height: 24px; min-width: 7px;" href="https://localhost:9080/#!gist=%D0%9F%D0%BB%D0%B0%D1%82%D0%BE%D1%87%D0%B5%D0%BA" title="" target="_self" rel=""><mol_view id="$hyoo_scout.Root(0).Gist_link_icon('Платочек')" hyoo_scout_gist_link_icon="" mol_view="" style="min-height: 0px; min-width: 0px;">🏃</mol_view><mol_dimmer id="$hyoo_scout.Root(0).Gist_link_title('Платочек')" hyoo_scout_gist_link_title="" mol_dimmer="" mol_paragraph="" mol_view="" style="min-height: 24px; min-width: 7px;">Платочек</mol_dimmer></a><a id="$hyoo_scout.Root(0).Gist_link('Покрывало')" hyoo_scout_gist_link="" mol_link="" mol_view="" style="min-height: 24px; min-width: 7px;" href="https://localhost:9080/#!gist=%D0%9F%D0%BE%D0%BA%D1%80%D1%8B%D0%B2%D0%B0%D0%BB%D0%BE" title="" target="_self" rel=""><mol_view id="$hyoo_scout.Root(0).Gist_link_icon('Покрывало')" hyoo_scout_gist_link_icon="" mol_view="" style="min-height: 0px; min-width: 0px;">🚧</mol_view><mol_dimmer id="$hyoo_scout.Root(0).Gist_link_title('Покрывало')" hyoo_scout_gist_link_title="" mol_dimmer="" mol_paragraph="" mol_view="" style="min-height: 24px; min-width: 7px;">Покрывало</mol_dimmer></a><a id="$hyoo_scout.Root(0).Gist_link('Полный Скрам')" hyoo_scout_gist_link="" mol_link="" mol_view="" style="min-height: 24px; min-width: 7px;" href="https://localhost:9080/#!" title="" target="_self" mol_link_current="true" rel=""><mol_view id="$hyoo_scout.Root(0).Gist_link_icon('Полный Скрам')" hyoo_scout_gist_link_icon="" mol_view="" style="min-height: 0px; min-width: 0px;">🏗</mol_view><mol_dimmer id="$hyoo_scout.Root(0).Gist_link_title('Полный Скрам')" hyoo_scout_gist_link_title="" mol_dimmer="" mol_paragraph="" mol_view="" style="min-height: 24px; min-width: 7px;">Полный Скрам</mol_dimmer></a><a id="$hyoo_scout.Root(0).Gist_link('Построения')" hyoo_scout_gist_link="" mol_link="" mol_view="" style="min-height: 24px; min-width: 7px;" href="https://localhost:9080/#!gist=%D0%9F%D0%BE%D1%81%D1%82%D1%80%D0%BE%D0%B5%D0%BD%D0%B8%D1%8F" title="" target="_self" rel=""><mol_view id="$hyoo_scout.Root(0).Gist_link_icon('Построения')" hyoo_scout_gist_link_icon="" mol_view="" style="min-height: 0px; min-width: 0px;">🔀</mol_view><mol_dimmer id="$hyoo_scout.Root(0).Gist_link_title('Построения')" hyoo_scout_gist_link_title="" mol_dimmer="" mol_paragraph="" mol_view="" style="min-height: 24px; min-width: 7px;">Построения</mol_dimmer></a><a id="$hyoo_scout.Root(0).Gist_link('Почему так?')" hyoo_scout_gist_link="" mol_link="" mol_view="" style="min-height: 24px; min-width: 7px;" href="https://localhost:9080/#!gist=%D0%9F%D0%BE%D1%87%D0%B5%D0%BC%D1%83%20%D1%82%D0%B0%D0%BA%3F" title="" target="_self" rel=""><mol_view id="$hyoo_scout.Root(0).Gist_link_icon('Почему так?')" hyoo_scout_gist_link_icon="" mol_view="" style="min-height: 0px; min-width: 0px;">❓</mol_view><mol_dimmer id="$hyoo_scout.Root(0).Gist_link_title('Почему так?')" hyoo_scout_gist_link_title="" mol_dimmer="" mol_paragraph="" mol_view="" style="min-height: 24px; min-width: 7px;">Почему так?</mol_dimmer></a><a id="$hyoo_scout.Root(0).Gist_link('Поющие молекулы')" hyoo_scout_gist_link="" mol_link="" mol_view="" style="min-height: 24px; min-width: 7px;" href="https://localhost:9080/#!gist=%D0%9F%D0%BE%D1%8E%D1%89%D0%B8%D0%B5%20%D0%BC%D0%BE%D0%BB%D0%B5%D0%BA%D1%83%D0%BB%D1%8B" title="" target="_self" rel=""><mol_view id="$hyoo_scout.Root(0).Gist_link_icon('Поющие молекулы')" hyoo_scout_gist_link_icon="" mol_view="" style="min-height: 0px; min-width: 0px;">🎶</mol_view><mol_dimmer id="$hyoo_scout.Root(0).Gist_link_title('Поющие молекулы')" hyoo_scout_gist_link_title="" mol_dimmer="" mol_paragraph="" mol_view="" style="min-height: 24px; min-width: 7px;">Поющие молекулы</mol_dimmer></a><a id="$hyoo_scout.Root(0).Gist_link('Притяжение-отталкивание')" hyoo_scout_gist_link="" mol_link="" mol_view="" style="min-height: 24px; min-width: 7px;" href="https://localhost:9080/#!gist=%D0%9F%D1%80%D0%B8%D1%82%D1%8F%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5-%D0%BE%D1%82%D1%82%D0%B0%D0%BB%D0%BA%D0%B8%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5" title="" target="_self" rel=""><mol_view id="$hyoo_scout.Root(0).Gist_link_icon('Притяжение-отталкивание')" hyoo_scout_gist_link_icon="" mol_view="" style="min-height: 0px; min-width: 0px;">⚛️</mol_view><mol_dimmer id="$hyoo_scout.Root(0).Gist_link_title('Притяжение-отталкивание')" hyoo_scout_gist_link_title="" mol_dimmer="" mol_paragraph="" mol_view="" style="min-height: 24px; min-width: 7px;">Притяжение-отталкивание</mol_dimmer></a><a id="$hyoo_scout.Root(0).Gist_link('Расписание')" hyoo_scout_gist_link="" mol_link="" mol_view="" style="min-height: 24px; min-width: 7px;" href="https://localhost:9080/#!gist=%D0%A0%D0%B0%D1%81%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D0%B5" title="" target="_self" rel=""><mol_view id="$hyoo_scout.Root(0).Gist_link_icon('Расписание')" hyoo_scout_gist_link_icon="" mol_view="" style="min-height: 0px; min-width: 0px;">📜</mol_view><mol_dimmer id="$hyoo_scout.Root(0).Gist_link_title('Расписание')" hyoo_scout_gist_link_title="" mol_dimmer="" mol_paragraph="" mol_view="" style="min-height: 24px; min-width: 7px;">Расписание</mol_dimmer></a><a id="$hyoo_scout.Root(0).Gist_link('Своя игра')" hyoo_scout_gist_link="" mol_link="" mol_view="" style="min-height: 24px; min-width: 7px;" href="https://localhost:9080/#!gist=%D0%A1%D0%B2%D0%BE%D1%8F%20%D0%B8%D0%B3%D1%80%D0%B0" title="" target="_self" rel=""><mol_view id="$hyoo_scout.Root(0).Gist_link_icon('Своя игра')" hyoo_scout_gist_link_icon="" mol_view="" style="min-height: 0px; min-width: 0px;">🗃️</mol_view><mol_dimmer id="$hyoo_scout.Root(0).Gist_link_title('Своя игра')" hyoo_scout_gist_link_title="" mol_dimmer="" mol_paragraph="" mol_view="" style="min-height: 24px; min-width: 7px;">Своя игра</mol_dimmer></a><a id="$hyoo_scout.Root(0).Gist_link('Связи')" hyoo_scout_gist_link="" mol_link="" mol_view="" style="min-height: 24px; min-width: 7px;" href="https://localhost:9080/#!gist=%D0%A1%D0%B2%D1%8F%D0%B7%D0%B8" title="" target="_self" rel=""><mol_view id="$hyoo_scout.Root(0).Gist_link_icon('Связи')" hyoo_scout_gist_link_icon="" mol_view="" style="min-height: 0px; min-width: 0px;">🖇️</mol_view><mol_dimmer id="$hyoo_scout.Root(0).Gist_link_title('Связи')" hyoo_scout_gist_link_title="" mol_dimmer="" mol_paragraph="" mol_view="" style="min-height: 24px; min-width: 7px;">Связи</mol_dimmer></a><a id="$hyoo_scout.Root(0).Gist_link('Сердца')" hyoo_scout_gist_link="" mol_link="" mol_view="" style="min-height: 24px; min-width: 7px;" href="https://localhost:9080/#!gist=%D0%A1%D0%B5%D1%80%D0%B4%D1%86%D0%B0" title="" target="_self" rel=""><mol_view id="$hyoo_scout.Root(0).Gist_link_icon('Сердца')" hyoo_scout_gist_link_icon="" mol_view="" style="min-height: 0px; min-width: 0px;">💞</mol_view><mol_dimmer id="$hyoo_scout.Root(0).Gist_link_title('Сердца')" hyoo_scout_gist_link_title="" mol_dimmer="" mol_paragraph="" mol_view="" style="min-height: 24px; min-width: 7px;">Сердца</mol_dimmer></a><a id="$hyoo_scout.Root(0).Gist_link('Случаи из жизни')" hyoo_scout_gist_link="" mol_link="" mol_view="" style="min-height: 24px; min-width: 7px;" href="https://localhost:9080/#!gist=%D0%A1%D0%BB%D1%83%D1%87%D0%B0%D0%B8%20%D0%B8%D0%B7%20%D0%B6%D0%B8%D0%B7%D0%BD%D0%B8" title="" target="_self" rel=""><mol_view id="$hyoo_scout.Root(0).Gist_link_icon('Случаи из жизни')" hyoo_scout_gist_link_icon="" mol_view="" style="min-height: 0px; min-width: 0px;">💬</mol_view><mol_dimmer id="$hyoo_scout.Root(0).Gist_link_title('Случаи из жизни')" hyoo_scout_gist_link_title="" mol_dimmer="" mol_paragraph="" mol_view="" style="min-height: 24px; min-width: 7px;">Случаи из жизни</mol_dimmer></a><mol_view id="$hyoo_scout.Root(0).Gists_list().Gap_after()" mol_list_gap_after="" hyoo_scout_gists_list_gap_after="" mol_view="" style="min-height: 0px; min-width: 0px; padding-top: 360px;"></mol_view></mol_list></mol_view></mol_scroll><footer id="$hyoo_scout.Root(0).Gists().Foot()" mol_page_foot="" hyoo_scout_gists_foot="" mol_view="" style="min-height: 0px; min-width: 0px;"></footer></article><article id="$hyoo_scout.Root(0).Gist('Полный Скрам')" hyoo_scout_gist="" mol_page="" mol_view="" style="min-height: 64px; min-width: 40px;" tabindex="-1"><header id="$hyoo_scout.Root(0).Gist('Полный Скрам').Head()" mol_page_head="" hyoo_scout_gist_head="" mol_view="" style="min-height: 64px; min-width: 40px;"><h1 id="$hyoo_scout.Root(0).Gist('Полный Скрам').Title()" mol_page_title="" hyoo_scout_gist_title="" mol_view="" style="min-height: 0px; min-width: 0px;">Полный Скрам</h1><mol_view id="$hyoo_scout.Root(0).Gist('Полный Скрам').Tools()" mol_page_tools="" hyoo_scout_gist_tools="" mol_view="" style="min-height: 40px; min-width: 40px;"><mol_check_icon id="$hyoo_scout.Root(0).Gist_favorite('Полный Скрам')" hyoo_scout_gist_favorite="" mol_check_icon="" mol_check="" mol_button_minor="" mol_button_typed="" mol_button="" mol_view="" style="min-height: 40px; min-width: 40px;" role="checkbox" tabindex="0" title="" aria-checked="false"><svg id="$hyoo_scout.Root(0).Gist_favorite_icon()" hyoo_scout_gist_favorite_icon="" mol_icon_favorite="" mol_icon="" mol_svg_root="" mol_svg="" mol_view="" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid"><path id="$hyoo_scout.Root(0).Gist_favorite_icon().Path()" mol_icon_favorite_path="" mol_icon_path="" hyoo_scout_gist_favorite_icon_path="" mol_svg_path="" mol_svg="" mol_view="" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg></mol_check_icon><a id="$hyoo_scout.Root(0).Gist_close()" hyoo_scout_gist_close="" mol_link="" mol_view="" style="min-height: 24px; min-width: 16px;" href="https://localhost:9080/#!" title="" target="_self" rel=""><svg id="$hyoo_scout.Root(0).Gist_close_icon()" hyoo_scout_gist_close_icon="" mol_icon_close="" mol_icon="" mol_svg_root="" mol_svg="" mol_view="" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid"><path id="$hyoo_scout.Root(0).Gist_close_icon().Path()" mol_icon_close_path="" mol_icon_path="" hyoo_scout_gist_close_icon_path="" mol_svg_path="" mol_svg="" mol_view="" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"></path></svg></a></mol_view></header><mol_scroll id="$hyoo_scout.Root(0).Gist('Полный Скрам').Body()" mol_page_body="" hyoo_scout_gist_body="" mol_scroll="" mol_view="" style="min-height: 0px; min-width: 0px;" tabindex="-1"><mol_view id="$hyoo_scout.Root(0).Gist('Полный Скрам').Body_content()" mol_page_body_content="" hyoo_scout_gist_body_content="" mol_view="" style="min-height: 1080px; min-width: 1px;"><mol_text id="$hyoo_scout.Root(0).Gist_content('Полный Скрам')" hyoo_scout_gist_content="" mol_text="" mol_list="" mol_view="" style="min-height: 1080px; min-width: 1px;"><mol_paragraph id="$hyoo_scout.Root(0).Gist_content('Полный Скрам').Paragraph(0)" mol_text_paragraph="" hyoo_scout_gist_content_paragraph="" mol_paragraph="" mol_view="" style="min-height: 120px; min-width: 7px;"><span id="$hyoo_scout.Root(0).Gist_content('Полный Скрам').String([0,0])" mol_text_string="" hyoo_scout_gist_content_string="" mol_dimmer="" mol_paragraph="" mol_view="" style="min-height: 120px; min-width: 7px;">Методисту: Сфера IT настолько быстро развивается, что зачастую нет времени на длительное и детальное проектирование, как, например, в строительстве. Мощь IT в том, что цена ошибки меньше, чем цена разработки, поэтому в IT так популярны гибкие методологии, позволяющие быстро получать не идеальный результат, проверять его в бою, и тут же учитывать полученную на практике информацию для дальнейшего развития. С помощью простой командной задачи мы в ролевой форме познакомим ребят с разработкой по Скраму (популярной гибкой методологией разработки), познакомим с основными ролями и покажем значимость каждой из них, научим их самоорганизации и самоанализу.</span></mol_paragraph><mol_paragraph id="$hyoo_scout.Root(0).Gist_content('Полный Скрам').Paragraph(1)" mol_text_paragraph="" hyoo_scout_gist_content_paragraph="" mol_paragraph="" mol_view="" style="min-height: 168px; min-width: 7px;"><span id="$hyoo_scout.Root(0).Gist_content('Полный Скрам').String([1,0])" mol_text_string="" hyoo_scout_gist_content_string="" mol_dimmer="" mol_paragraph="" mol_view="" style="min-height: 168px; min-width: 7px;">Ведущему: Ребят нужно разбить на группы по 3-6 человек и выдать каждой группе реквизит: 5 листов бумаги, рулон скотча, 5 соломинок, 5 стаканчиков. Игра (проект) проводится в несколько этапов (спринтов). На каждом спринте - новая задача и новый критерий её оценки, а так же дополнительные 2 листа бумаги, 2 соломинки и 2 стаканчика. Необходимо сразу чётко обозначить, что на время спринта есть ограничения, которые строго соблюдаются. Договорились или нет - таймер никого не ждёт. Если задача принята - команде даётся очко. Если команда выполнила задачу лучше всех, то ещё одно очко дополнительно. Кроме явных критериев приёмки, есть критерии и неявные, про которые ничего ребятам не говорим, пока не спросят (приучаем ребят "вытягивать" требования из -заказчика, который зачастую сам не знает, чего хочет, пока не получит не то, что надо). Если спринт проваливают все, то он повторяется. Если кто-то его выполнил, то всем вызаются новые задачи (явно не говорим, что старые задачи уже не актуальны).</span></mol_paragraph><mol_paragraph id="$hyoo_scout.Root(0).Gist_content('Полный Скрам').Paragraph(2)" mol_text_paragraph="" hyoo_scout_gist_content_paragraph="" mol_paragraph="" mol_view="" style="min-height: 24px; min-width: 7px;"><span id="$hyoo_scout.Root(0).Gist_content('Полный Скрам').String([2,0])" mol_text_string="" hyoo_scout_gist_content_string="" mol_dimmer="" mol_paragraph="" mol_view="" style="min-height: 24px; min-width: 7px;">Спринт состоит из:</span></mol_paragraph><mol_text_list id="$hyoo_scout.Root(0).Gist_content('Полный Скрам').List(3)" mol_text_list="" hyoo_scout_gist_content_list="" mol_text="" mol_list="" mol_view="" style="min-height: 168px; min-width: 1px;" mol_text_list_type="*"><mol_text_list_item id="$hyoo_scout.Root(0).Gist_content('Полный Скрам').List(3).Paragraph (0)" mol_text_list_paragraph="" mol_text_paragraph="" hyoo_scout_gist_content_list_paragraph="" mol_text_list_item="" mol_paragraph="" mol_view="" style="min-height: 24px; min-width: 7px;" mol_text_list_item_index="1"><span id="$hyoo_scout.Root(0).Gist_content('Полный Скрам').List(3).String([0,0])" mol_text_list_string="" mol_text_string="" hyoo_scout_gist_content_list_string="" mol_dimmer="" mol_paragraph="" mol_view="" style="min-height: 24px; min-width: 7px;">Планирование - 1 минута, чтобы договориться, что и как будут делать, распределить обязанности. Во время планирования трогать ничего нельзя.</span></mol_text_list_item><mol_text_list_item id="$hyoo_scout.Root(0).Gist_content('Полный Скрам').List(3).Paragraph (1)" mol_text_list_paragraph="" mol_text_paragraph="" hyoo_scout_gist_content_list_paragraph="" mol_text_list_item="" mol_paragraph="" mol_view="" style="min-height: 48px; min-width: 7px;" mol_text_list_item_index="2"><span id="$hyoo_scout.Root(0).Gist_content('Полный Скрам').List(3).String([1,0])" mol_text_list_string="" mol_text_string="" hyoo_scout_gist_content_list_string="" mol_dimmer="" mol_paragraph="" mol_view="" style="min-height: 48px; min-width: 7px;">Реализация - 5 минут для совместного выполнения задачи. Как только время заканчивается все убирают руки и встают. Если кто-то что-то придерживает ещё - спринт считается заваленным.</span></mol_text_list_item><mol_text_list_item id="$hyoo_scout.Root(0).Gist_content('Полный Скрам').List(3).Paragraph (2)" mol_text_list_paragraph="" mol_text_paragraph="" hyoo_scout_gist_content_list_paragraph="" mol_text_list_item="" mol_paragraph="" mol_view="" style="min-height: 48px; min-width: 7px;" mol_text_list_item_index="3"><span id="$hyoo_scout.Root(0).Gist_content('Полный Скрам').List(3).String([2,0])" mol_text_list_string="" mol_text_string="" hyoo_scout_gist_content_list_string="" mol_dimmer="" mol_paragraph="" mol_view="" style="min-height: 48px; min-width: 7px;">Демо - тут ребята презентуют Владельзу Продукта (один из ведущих) проделанную работу, а тот проверяет достигнутые цели. Нет ограничения по времени.</span></mol_text_list_item><mol_text_list_item id="$hyoo_scout.Root(0).Gist_content('Полный Скрам').List(3).Paragraph (3)" mol_text_list_paragraph="" mol_text_paragraph="" hyoo_scout_gist_content_list_paragraph="" mol_text_list_item="" mol_paragraph="" mol_view="" style="min-height: 48px; min-width: 7px;" mol_text_list_item_index="4"><span id="$hyoo_scout.Root(0).Gist_content('Полный Скрам').List(3).String([3,0])" mol_text_list_string="" mol_text_string="" hyoo_scout_gist_content_list_string="" mol_dimmer="" mol_paragraph="" mol_view="" style="min-height: 48px; min-width: 7px;">Ретроспектива - 2 минуты ребята обсуждают что они сделали хорошо, что стоит исправить на следующей итерации (и назначают ответственных), и меняются ролями, если в этом есть необходимость.</span></mol_text_list_item></mol_text_list><mol_paragraph id="$hyoo_scout.Root(0).Gist_content('Полный Скрам').Paragraph(4)" mol_text_paragraph="" hyoo_scout_gist_content_paragraph="" mol_paragraph="" mol_view="" style="min-height: 48px; min-width: 7px;"><span id="$hyoo_scout.Root(0).Gist_content('Полный Скрам').String([4,0])" mol_text_string="" hyoo_scout_gist_content_string="" mol_dimmer="" mol_paragraph="" mol_view="" style="min-height: 48px; min-width: 7px;">На первой итерации ведущие помогают ребятам с планированием и ретроспективой в роли скрам-мастеров. На остальных итерациях - всё сами. Скрам мастер может уточнять у ведущих в процессе работы, если что-то не понял.</span></mol_paragraph><mol_paragraph id="$hyoo_scout.Root(0).Gist_content('Полный Скрам').Paragraph(5)" mol_text_paragraph="" hyoo_scout_gist_content_paragraph="" mol_paragraph="" mol_view="" style="min-height: 24px; min-width: 7px;"><span id="$hyoo_scout.Root(0).Gist_content('Полный Скрам').String([5,0])" mol_text_string="" hyoo_scout_gist_content_string="" mol_dimmer="" mol_paragraph="" mol_view="" style="min-height: 24px; min-width: 7px;">Возможные роли для ребят:</span></mol_paragraph><mol_text_list id="$hyoo_scout.Root(0).Gist_content('Полный Скрам').List(6)" mol_text_list="" hyoo_scout_gist_content_list="" mol_text="" mol_list="" mol_view="" style="min-height: 144px; min-width: 1px;" mol_text_list_type=""><mol_text_list_item id="$hyoo_scout.Root(0).Gist_content('Полный Скрам').List(6).Paragraph (0)" mol_text_list_paragraph="" mol_text_paragraph="" hyoo_scout_gist_content_list_paragraph="" mol_text_list_item="" mol_paragraph="" mol_view="" style="min-height: 48px; min-width: 7px;" mol_text_list_item_index="1"><span id="$hyoo_scout.Root(0).Gist_content('Полный Скрам').List(6).String([0,0])" mol_text_list_string="" mol_text_string="" hyoo_scout_gist_content_list_string="" mol_dimmer="" mol_paragraph="" mol_view="" style="min-height: 48px; min-width: 7px;">Скрам мастер - проводит планирование и ретроспективу, контролирует, чтобы принятые на ретроспективе договорённости выполнялись, общается (и только он) с владельцем продукта.</span></mol_text_list_item><mol_text_list_item id="$hyoo_scout.Root(0).Gist_content('Полный Скрам').List(6).Paragraph (1)" mol_text_list_paragraph="" mol_text_paragraph="" hyoo_scout_gist_content_list_paragraph="" mol_text_list_item="" mol_paragraph="" mol_view="" style="min-height: 24px; min-width: 7px;" mol_text_list_item_index="2"><span id="$hyoo_scout.Root(0).Gist_content('Полный Скрам').List(6).String([1,0])" mol_text_list_string="" mol_text_string="" hyoo_scout_gist_content_list_string="" mol_dimmer="" mol_paragraph="" mol_view="" style="min-height: 24px; min-width: 7px;">Дизайнер - контролирует внешний вид, чтобы всё смотрелось органично и так, чтобы понравилось владельцу продукта.</span></mol_text_list_item><mol_text_list_item id="$hyoo_scout.Root(0).Gist_content('Полный Скрам').List(6).Paragraph (2)" mol_text_list_paragraph="" mol_text_paragraph="" hyoo_scout_gist_content_list_paragraph="" mol_text_list_item="" mol_paragraph="" mol_view="" style="min-height: 24px; min-width: 7px;" mol_text_list_item_index="3"><span id="$hyoo_scout.Root(0).Gist_content('Полный Скрам').List(6).String([2,0])" mol_text_list_string="" mol_text_string="" hyoo_scout_gist_content_list_string="" mol_dimmer="" mol_paragraph="" mol_view="" style="min-height: 24px; min-width: 7px;">Архитектор - проектирует какие необходимо внести изменения, чтобы проект выполнял поставленные задачи.</span></mol_text_list_item><mol_text_list_item id="$hyoo_scout.Root(0).Gist_content('Полный Скрам').List(6).Paragraph (3)" mol_text_list_paragraph="" mol_text_paragraph="" hyoo_scout_gist_content_list_paragraph="" mol_text_list_item="" mol_paragraph="" mol_view="" style="min-height: 24px; min-width: 7px;" mol_text_list_item_index="4"><span id="$hyoo_scout.Root(0).Gist_content('Полный Скрам').List(6).String([3,0])" mol_text_list_string="" mol_text_string="" hyoo_scout_gist_content_list_string="" mol_dimmer="" mol_paragraph="" mol_view="" style="min-height: 24px; min-width: 7px;">Разработчик - собственно делает всё своими руками.</span></mol_text_list_item><mol_text_list_item id="$hyoo_scout.Root(0).Gist_content('Полный Скрам').List(6).Paragraph (4)" mol_text_list_paragraph="" mol_text_paragraph="" hyoo_scout_gist_content_list_paragraph="" mol_text_list_item="" mol_paragraph="" mol_view="" style="min-height: 24px; min-width: 7px;" mol_text_list_item_index="5"><span id="$hyoo_scout.Root(0).Gist_content('Полный Скрам').List(6).String([4,0])" mol_text_list_string="" mol_text_string="" hyoo_scout_gist_content_list_string="" mol_dimmer="" mol_paragraph="" mol_view="" style="min-height: 24px; min-width: 7px;">QA - проверяет, соответствие того ,что сделано, критериям приёмки задачи.</span></mol_text_list_item></mol_text_list><mol_paragraph id="$hyoo_scout.Root(0).Gist_content('Полный Скрам').Paragraph(7)" mol_text_paragraph="" hyoo_scout_gist_content_paragraph="" mol_paragraph="" mol_view="" style="min-height: 24px; min-width: 7px;"><span id="$hyoo_scout.Root(0).Gist_content('Полный Скрам').String([7,0])" mol_text_string="" hyoo_scout_gist_content_string="" mol_dimmer="" mol_paragraph="" mol_view="" style="min-height: 24px; min-width: 7px;">Возможные задачи по спринтам:</span></mol_paragraph><mol_text_list id="$hyoo_scout.Root(0).Gist_content('Полный Скрам').List(8)" mol_text_list="" hyoo_scout_gist_content_list="" mol_text="" mol_list="" mol_view="" style="min-height: 48px; min-width: 1px;" mol_text_list_type=""><mol_text_list_item id="$hyoo_scout.Root(0).Gist_content('Полный Скрам').List(8).Paragraph (0)" mol_text_list_paragraph="" mol_text_paragraph="" hyoo_scout_gist_content_list_paragraph="" mol_text_list_item="" mol_paragraph="" mol_view="" style="min-height: 48px; min-width: 7px;" mol_text_list_item_index="1"><span id="$hyoo_scout.Root(0).Gist_content('Полный Скрам').List(8).String([0,0])" mol_text_list_string="" mol_text_string="" hyoo_scout_gist_content_list_string="" mol_dimmer="" mol_paragraph="" mol_view="" style="min-height: 48px; min-width: 7px;">Постройте мне наиболее высокое сооружение. Озвучивается критерий причёмки: не менее 30см высотой. Не озвучивается критерий приёмки: дизайн должен быть симметричным. Кто выше всех - получает очко.</span></mol_text_list_item></mol_text_list><mol_text_list id="$hyoo_scout.Root(0).Gist_content('Полный Скрам').List(9)" mol_text_list="" hyoo_scout_gist_content_list="" mol_text="" mol_list="" mol_view="" style="min-height: 72px; min-width: 1px;" mol_text_list_type=""><mol_text_list_item id="$hyoo_scout.Root(0).Gist_content('Полный Скрам').List(9).Paragraph (0)" mol_text_list_paragraph="" mol_text_paragraph="" hyoo_scout_gist_content_list_paragraph="" mol_text_list_item="" mol_paragraph="" mol_view="" style="min-height: 72px; min-width: 7px;" mol_text_list_item_index="1"><span id="$hyoo_scout.Root(0).Gist_content('Полный Скрам').List(9).String([0,0])" mol_text_list_string="" mol_text_string="" hyoo_scout_gist_content_list_string="" mol_dimmer="" mol_paragraph="" mol_view="" style="min-height: 72px; min-width: 7px;">Как всё классно, я бы хотел там жить на самом верху. Добавьте мне туда как можно более просторный пентхаус. Озвучивается критерий: высота не должна быть меньше, чем была. Не озвучивается критерий: размер оцениваем по максимальному габариту в горизонтальной плоскости, где можно поставить маленькую игрушку и она не упадёт и не развалит дом. У кого пентхаус больше - получает очко.</span></mol_text_list_item></mol_text_list><mol_view id="$hyoo_scout.Root(0).Gist_content('Полный Скрам').Gap_after()" mol_text_gap_after="" mol_list_gap_after="" hyoo_scout_gist_content_gap_after="" mol_view="" style="min-height: 0px; min-width: 0px; padding-top: 240px;"></mol_view></mol_text><mol_list id="$hyoo_scout.Root(0).Gist_aspects('Полный Скрам')" hyoo_scout_gist_aspects="" mol_list="" mol_view="" style="min-height: 0px; min-width: 1px;"><mol_row id="$hyoo_scout.Root(0).Gist_aspect('Длительность')" hyoo_scout_gist_aspect="" mol_row="" mol_view="" style="min-height: 0px; min-width: 0px;"><mol_view id="$hyoo_scout.Root(0).Gist_aspect_title('Длительность')" hyoo_scout_gist_aspect_title="" mol_view="" style="min-height: 0px; min-width: 0px;">Длительность: </mol_view><mol_view id="$hyoo_scout.Root(0).Gist_aspect_tags('Длительность')" hyoo_scout_gist_aspect_tags="" mol_view="" style="min-height: 0px; min-width: 0px;"><mol_view id="$hyoo_scout.Root(0).Gist_tag({'aspect':'Длительность','tag':'40 минут'})" hyoo_scout_gist_tag="" mol_view="" style="min-height: 0px; min-width: 0px;" hyoo_scout_tag_id="40 минут">40 минут</mol_view></mol_view></mol_row><mol_row id="$hyoo_scout.Root(0).Gist_aspect('Цель')" hyoo_scout_gist_aspect="" mol_row="" mol_view="" style="min-height: 0px; min-width: 0px;"><mol_view id="$hyoo_scout.Root(0).Gist_aspect_title('Цель')" hyoo_scout_gist_aspect_title="" mol_view="" style="min-height: 0px; min-width: 0px;">Цель: </mol_view><mol_view id="$hyoo_scout.Root(0).Gist_aspect_tags('Цель')" hyoo_scout_gist_aspect_tags="" mol_view="" style="min-height: 0px; min-width: 0px;"><mol_view id="$hyoo_scout.Root(0).Gist_tag({'aspect':'Цель','tag':'Сплочение'})" hyoo_scout_gist_tag="" mol_view="" style="min-height: 0px; min-width: 0px;" hyoo_scout_tag_id="Сплочение">Сплочение</mol_view></mol_view></mol_row><mol_row id="$hyoo_scout.Root(0).Gist_aspect('Возраст')" hyoo_scout_gist_aspect="" mol_row="" mol_view="" style="min-height: 0px; min-width: 0px;"><mol_view id="$hyoo_scout.Root(0).Gist_aspect_title('Возраст')" hyoo_scout_gist_aspect_title="" mol_view="" style="min-height: 0px; min-width: 0px;">Возраст: </mol_view><mol_view id="$hyoo_scout.Root(0).Gist_aspect_tags('Возраст')" hyoo_scout_gist_aspect_tags="" mol_view="" style="min-height: 0px; min-width: 0px;"><mol_view id="$hyoo_scout.Root(0).Gist_tag({'aspect':'Возраст','tag':'Старшаки'})" hyoo_scout_gist_tag="" mol_view="" style="min-height: 0px; min-width: 0px;" hyoo_scout_tag_id="Старшаки">Старшаки</mol_view></mol_view></mol_row><mol_row id="$hyoo_scout.Root(0).Gist_aspect('Реквизит')" hyoo_scout_gist_aspect="" mol_row="" mol_view="" style="min-height: 0px; min-width: 0px;"><mol_view id="$hyoo_scout.Root(0).Gist_aspect_title('Реквизит')" hyoo_scout_gist_aspect_title="" mol_view="" style="min-height: 0px; min-width: 0px;">Реквизит: </mol_view><mol_view id="$hyoo_scout.Root(0).Gist_aspect_tags('Реквизит')" hyoo_scout_gist_aspect_tags="" mol_view="" style="min-height: 0px; min-width: 0px;"><mol_view id="$hyoo_scout.Root(0).Gist_tag({'aspect':'Реквизит','tag':'Скотч'})" hyoo_scout_gist_tag="" mol_view="" style="min-height: 0px; min-width: 0px;" hyoo_scout_tag_id="Скотч">Скотч</mol_view><mol_view id="$hyoo_scout.Root(0).Gist_tag({'aspect':'Реквизит','tag':'Бумага'})" hyoo_scout_gist_tag="" mol_view="" style="min-height: 0px; min-width: 0px;" hyoo_scout_tag_id="Бумага">Бумага</mol_view><mol_view id="$hyoo_scout.Root(0).Gist_tag({'aspect':'Реквизит','tag':'Соломинки'})" hyoo_scout_gist_tag="" mol_view="" style="min-height: 0px; min-width: 0px;" hyoo_scout_tag_id="Соломинки">Соломинки</mol_view><mol_view id="$hyoo_scout.Root(0).Gist_tag({'aspect':'Реквизит','tag':'Стаканчики'})" hyoo_scout_gist_tag="" mol_view="" style="min-height: 0px; min-width: 0px;" hyoo_scout_tag_id="Стаканчики">Стаканчики</mol_view><mol_view id="$hyoo_scout.Root(0).Gist_tag({'aspect':'Реквизит','tag':'Яйца'})" hyoo_scout_gist_tag="" mol_view="" style="min-height: 0px; min-width: 0px;" hyoo_scout_tag_id="Яйца">Яйца</mol_view></mol_view></mol_row><mol_row id="$hyoo_scout.Root(0).Gist_aspect('Подготовка')" hyoo_scout_gist_aspect="" mol_row="" mol_view="" style="min-height: 0px; min-width: 0px;"><mol_view id="$hyoo_scout.Root(0).Gist_aspect_title('Подготовка')" hyoo_scout_gist_aspect_title="" mol_view="" style="min-height: 0px; min-width: 0px;">Подготовка: </mol_view><mol_view id="$hyoo_scout.Root(0).Gist_aspect_tags('Подготовка')" hyoo_scout_gist_aspect_tags="" mol_view="" style="min-height: 0px; min-width: 0px;"><mol_view id="$hyoo_scout.Root(0).Gist_tag({'aspect':'Подготовка','tag':'Нет'})" hyoo_scout_gist_tag="" mol_view="" style="min-height: 0px; min-width: 0px;" hyoo_scout_tag_id="Нет">Нет</mol_view></mol_view></mol_row><mol_row id="$hyoo_scout.Root(0).Gist_aspect('Место')" hyoo_scout_gist_aspect="" mol_row="" mol_view="" style="min-height: 0px; min-width: 0px;"><mol_view id="$hyoo_scout.Root(0).Gist_aspect_title('Место')" hyoo_scout_gist_aspect_title="" mol_view="" style="min-height: 0px; min-width: 0px;">Место: </mol_view><mol_view id="$hyoo_scout.Root(0).Gist_aspect_tags('Место')" hyoo_scout_gist_aspect_tags="" mol_view="" style="min-height: 0px; min-width: 0px;"><mol_view id="$hyoo_scout.Root(0).Gist_tag({'aspect':'Место','tag':'Зал'})" hyoo_scout_gist_tag="" mol_view="" style="min-height: 0px; min-width: 0px;" hyoo_scout_tag_id="Зал">Зал</mol_view></mol_view></mol_row></mol_list><mol_textarea id="$hyoo_scout.Root(0).Gist_remarks('Полный Скрам')" hyoo_scout_gist_remarks="" mol_textarea="" mol_stack="" mol_view="" style="min-height: 40px; min-width: 1px;"><textarea id="$hyoo_scout.Root(0).Gist_remarks('Полный Скрам').Edit()" mol_textarea_edit="" hyoo_scout_gist_remarks_edit="" mol_string="" mol_view="" style="min-height: 0px; min-width: 0px;" maxlength="Infinity" type="text" placeholder="Личные заметки" autocomplete="off" inputmode="text" mol_textarea_edit_submit="" mol_string_submit="" hyoo_scout_gist_remarks_edit_submit="" mol_hotkey="" mol_plugin=""></textarea><mol_text_code id="$hyoo_scout.Root(0).Gist_remarks('Полный Скрам').View()" mol_textarea_view="" hyoo_scout_gist_remarks_view="" mol_text_code="" mol_stack="" mol_view="" style="min-height: 24px; min-width: 1px;"><mol_list id="$hyoo_scout.Root(0).Gist_remarks('Полный Скрам').View().Rows()" mol_text_code_rows="" mol_textarea_view_rows="" hyoo_scout_gist_remarks_view_rows="" mol_list="" mol_view="" style="min-height: 24px; min-width: 1px;"><mol_text_code_line id="$hyoo_scout.Root(0).Gist_remarks('Полный Скрам').View().Row(1)" mol_text_code_row="" mol_textarea_view_row="" hyoo_scout_gist_remarks_view_row="" mol_text_code_line="" mol_paragraph="" mol_view="" style="min-height: 24px; min-width: 7px;"></mol_text_code_line></mol_list></mol_text_code></mol_textarea></mol_view></mol_scroll><footer id="$hyoo_scout.Root(0).Gist('Полный Скрам').Foot()" mol_page_foot="" hyoo_scout_gist_foot="" mol_view="" style="min-height: 0px; min-width: 0px;"></footer></article><mol_view id="$hyoo_scout.Root(0).Placeholder()" hyoo_scout_placeholder="" mol_book2_placeholder="" mol_view="" style="min-height: 0px; min-width: 0px;"></mol_view>
+</div>
+</body></html>
