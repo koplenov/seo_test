@@ -11715,7 +11715,7 @@ var $;
         $$.$hyoo_scout_gist = $hyoo_scout_gist;
         class $hyoo_scout extends $.$hyoo_scout {
             data() {
-                const text = $mol_fetch.text('hyoo/scout/_games.tree');
+                const text = $mol_fetch.text('https://raw.githubusercontent.com/koplenov/seo_test/refs/heads/master/hyoo/scout/_games.tree');
                 const json = this.$.$mol_tree2_from_string(text).kids.map(tree => this.$.$mol_tree2_to_json(tree.struct('*', tree.kids)));
                 return json;
             }
