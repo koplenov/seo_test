@@ -1,20 +1,7 @@
 #!/usr/bin/env node
 "use strict";
 /* test */;
-// function require( path ){ return $node[ path ] };
-
-const jsdom = require("jsdom");
-const fs = require("fs");
-const { JSDOM } = jsdom;
-const dom = new JSDOM(fs.readFileSync("index.html"), {
-	url: "https://localhost:9080/#!gist=%D0%9F%D0%BE%D0%BB%D0%BD%D1%8B%D0%B9%20%D0%A1%D0%BA%D1%80%D0%B0%D0%BC",
-	pretendToBeVisual: true,
-	contentType: "text/html",
-});
-var self = dom.window;
-var window = self;
-var document = self.document;
-var location = document.location;
+function require( path ){ return $node[ path ] };
 
 var $node = $node || {}
 void function( module ) { var exports = module.exports = this; function require( id ) { return $node[ id.replace( /^.\// , "../" ) ] }; 
@@ -1593,8 +1580,7 @@ var $;
             while (element) {
                 parents.push(element);
                 const parent = element.parentNode;
-                // if (parent instanceof ShadowRoot)
-				if (parent)
+                if (parent instanceof ShadowRoot)
                     element = parent.host;
                 else
                     element = parent;
@@ -3293,10 +3279,10 @@ var $;
                     new this.$.$mol_after_tick(() => {
                         const b = this.dom_node();
                         const p = n.dom_node();
-                        // b.scroll({
-                        //     left: p.offsetLeft + p.offsetWidth - b.offsetWidth,
-                        //     behavior: 'smooth',
-                        // });
+                        b.scroll({
+                            left: p.offsetLeft + p.offsetWidth - b.offsetWidth,
+                            behavior: 'smooth',
+                        });
                     });
                     break;
                 }
@@ -11729,8 +11715,7 @@ var $;
         $$.$hyoo_scout_gist = $hyoo_scout_gist;
         class $hyoo_scout extends $.$hyoo_scout {
             data() {
-                // const text = $mol_fetch.text('hyoo/scout/_games.tree');
-                const text = fs.readFileSync("hyoo/scout/_games.tree", "utf8");
+                const text = $mol_fetch.text('hyoo/scout/_games.tree');
                 const json = this.$.$mol_tree2_from_string(text).kids.map(tree => this.$.$mol_tree2_to_json(tree.struct('*', tree.kids)));
                 return json;
             }
@@ -11883,5 +11868,3 @@ var $;
 
 
 //# sourceMappingURL=web.js.map
-fs.writeFileSync("ssr.html", dom.serialize())
-fs.writeFileSync("ssr2.html", $hyoo_scout.Root(0).dom_tree().innerHTML)
