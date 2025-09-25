@@ -9574,7 +9574,7 @@ var $;
     (function ($$) {
         class $hyper_handbook_text extends $.$hyper_handbook_text {
             text() {
-                return $mol_fetch.text(this.url());
+                return $mol_fetch.text("https://koplenov.github.io/seo_test/hyper/handbook/wiki/$mol_button.mt");
             }
         }
         $$.$hyper_handbook_text = $hyper_handbook_text;
